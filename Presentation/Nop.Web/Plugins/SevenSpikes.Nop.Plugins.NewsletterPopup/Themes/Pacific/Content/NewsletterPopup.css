@@ -1,0 +1,186 @@
+﻿/*
+* Copyright 2018 Seven Spikes Ltd. All rights reserved. (http://www.nop-templates.com)
+* http://www.nop-templates.com/t/licensinginfo
+*/
+
+/* DEFAULT NEWSLETTER FORM */
+
+.newsletter .newsletter-subscribe-text,
+.newsletter .newsletter-email .options {
+    display: none;
+}
+.newsletter .newsletter-validation,
+.newsletter .newsletter-result {
+	display: none !important;
+}
+
+/* NEWSLETTER POPUP */
+
+.newsletter-subscribe-popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0; right: 0;
+    bottom: 0; left: 0;
+    z-index: 1060;
+    background: rgba(0,0,0,.4);
+}
+.newsletter-subscribe-popup {
+    position: fixed;
+	left: 0; right: 0;
+	top: 50%; z-index: 1070;
+	width: 600px;
+    max-width: 90%;
+    margin: auto;
+	background-color: #fff;
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: cover;
+	padding: 30px 20px;
+    text-align: center;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+.newsletter-subscribe-popup-title {
+    margin: 0 0 30px;
+    font-size: 24px;
+	font-weight: normal;
+    text-transform: uppercase;
+    color: #222;
+}
+.newsletter-subscribe-description-wrapper {
+    margin: 0 0 40px;
+    font-size: 14px;
+    font-weight: lighter;
+}
+.newsletter-subscribe-popup .newsletter-email {
+    margin: 0 0 10px;
+}
+.newsletter-subscribe-popup .newsletter-subscribe-text {
+    max-width: 330px;
+    border: 1px solid #eee;
+    color: #444;
+}
+.newsletter-subscribe-popup .newsletter-subscribe-button {
+    max-width: 330px;
+    background-color: #c09e6c;
+}
+.newsletter-subscribe-popup .newsletter-subscribe-button:before {
+    margin-right: 8px;
+}
+.newsletter-subscribe-popup .options {
+    margin: 0 0 20px;
+}
+.newsletter-subscribe-popup .options span {
+    display: inline-block;
+    position: relative;
+    margin: 0 5px;
+}
+.newsletter-subscribe-popup .options input {
+    position: absolute;
+    top: 0; left: 0;
+    bottom: 0;
+    margin: auto;
+    opacity: 0;
+}
+.newsletter-subscribe-popup .options label {
+    display: block;
+    padding: 5px 0 5px 20px;
+    font-size: 14px;
+    font-weight: lighter;
+    cursor: pointer;
+}
+.newsletter-subscribe-popup .options label:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0; bottom: 0;
+    left: 0; margin: auto;
+    width: 13px; height: 13px;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    background-color: #fff;
+}
+.newsletter-subscribe-popup .options input[type='radio']:checked ~ label:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0; bottom: 0; left: 3px;
+    width: 7px; height: 7px;
+    margin: auto;
+    border-radius: 50%;
+    background-color: #c09e6c;
+}
+.newsletter-subscribe-popup .newsletter-validation,
+.newsletter-subscribe-popup .newsletter-result {
+    line-height: normal;
+    font-size: 13px;
+    font-weight: lighter;
+    color: #444;
+}
+.newsletter-gdpr-checkbox-content,
+.newsletter-subscribe-checkbox-content {
+    margin: 30px 0 0;
+}
+.newsletter-subscribe-popup .newspetter-popup-inputs {
+    margin: 30px 0 0;
+}
+.newsletter-subscribe-popup .newspetter-popup-inputs input {
+	position: absolute;
+    margin: 2px;
+	opacity: 0;
+}
+.newsletter-subscribe-popup .newspetter-popup-inputs label {
+	position: relative;
+	padding: 6px 0px 6px 25px;
+	font-size: 14px;
+    cursor: pointer;
+}
+.newsletter-subscribe-popup .newspetter-popup-inputs label:before {
+	content: "";
+    position: absolute;
+    top: 6px; left: 0;
+    width: 16px; height: 16px;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+}
+.newsletter-subscribe-popup .newspetter-popup-inputs input:checked ~ label:after {
+	content: "\e909";
+    position: absolute;
+    top: 5px; left: 2px;
+    width: 15px; height: 15px;
+    text-align: center;
+    font-family: 'pacific';
+    font-size: 13px;
+    line-height: 16px;
+    color: #c09e6c;
+}
+.newsletter-subscribe-popup .close-popup {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    overflow: hidden;
+    background-color: transparent;
+    font-size: 0;
+    color: #888;
+    cursor: pointer;
+}
+.newsletter-subscribe-popup .close-popup:after {
+    content: "\e90a";
+    position: absolute;
+    top: 0; right: 0;
+    bottom: 0; left: 0;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    font-family: 'pacific';
+    font-size: 20px;
+    line-height: 40px;
+    transition: 0.3s ease;
+}
+.newsletter-subscribe-popup .close-popup:hover {
+    color: #444;
+}

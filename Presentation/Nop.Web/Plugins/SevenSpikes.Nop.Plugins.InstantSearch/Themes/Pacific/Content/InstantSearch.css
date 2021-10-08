@@ -1,0 +1,127 @@
+﻿/*
+* Copyright 2014 Seven Spikes Ltd. All rights reserved. (http://www.nop-templates.com)
+* http://www.nop-templates.com/t/licensinginfo
+*/
+
+input.instant-search-busy {
+	/*background: #fff url('../../../images/ajax-loader-small.gif') right 5px center no-repeat !important;*/
+}
+
+/* SEARCH BOX */
+
+.store-search-box span.search-box-text {
+	display: block;
+}
+.store-search-box span.search-box-text.narrow {
+    float: left;
+    width: 55%;
+}
+.store-search-box input.search-box-text.narrow {
+    padding: 0 15px;
+}
+.store-search-box .search-box-select {
+    position: absolute; top: 0; right: 40px; /*prevents layout shifting, kendo span wrapper rendering takes some time*/
+	width: 45%;
+    height: 40px;
+    border-width: 0 1px;
+}
+.store-search-box span + .search-box-select {
+    position: static; /*reset, otherwise the layout will overlap*/
+}
+
+/* AUTOCOMPLETE */
+
+.instantSearch {
+	width: 100% !important;
+	height: auto !important;
+    box-shadow: 0 0 20px rgba(2,2,4,.2);
+	background-color: #fff;
+}
+.instantSearch .k-list-container {
+	position: static !important;
+	width: 100% !important;
+}
+.instantSearch .k-list-scroller {
+    height: 100% !important;
+    overflow-y: auto;
+}
+.instantSearch .k-item {
+	cursor: pointer;
+}
+.instantSearch .k-item + .k-item {
+	border-top: 1px solid #eee;
+}
+.instant-search-item {
+    display: table;
+    width: 100%;
+    padding: 5px;
+}
+.instant-search-item .img-block {
+    display: table-cell;
+	position: relative;
+	width: 60px;
+	height: 60px;
+    overflow: hidden;
+	background-color: #fff;
+	text-align: center;
+    vertical-align: middle;
+}
+.instant-search-item .img-block img {
+	position: absolute;
+	top: 0; right: 0;
+	bottom: 0; left: 0;
+	max-width: 100%;
+	max-height: 100%;
+	margin: auto;
+}
+.instant-search-item .detail {
+	display: table-cell;
+    padding-left: 15px;
+    text-align: left;
+    vertical-align: middle;
+    font-size: 14px;
+    color: #888;
+}
+.instant-search-item .detail .title {
+    max-height: 17px; /*single line*/
+    overflow: hidden;
+}
+.instant-search-item .detail .sku {
+    margin: 5px 0 0;
+}
+.instant-search-item .detail .price {
+    margin: 5px 0 0;
+    font-weight: bold;
+	color: #c09e6c;
+}
+.k-item.k-state-hover,
+.k-item.k-state-focused {
+	background-color: #f6f6f6;
+}
+.k-item.k-state-hover .detail,
+.k-item.k-state-focused .detail {
+    color: #222;
+}
+
+
+@media all and (min-width: 768px) {
+
+    .instantSearch {
+        margin: 0 0 0 -1px !important;
+    }
+    .instantSearch .k-list-container {
+        border: none;
+        box-shadow: none;
+    }
+}
+
+@media all and (min-width: 1261px) {
+
+    .with-caregory-search-enabled form {
+        min-width: 400px;
+    }
+    .store-search-box .search-box-select {
+        right: 75px;
+        height: 79px;
+    }
+}

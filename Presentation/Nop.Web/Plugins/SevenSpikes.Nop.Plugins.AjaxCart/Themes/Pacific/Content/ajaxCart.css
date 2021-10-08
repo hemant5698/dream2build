@@ -1,0 +1,443 @@
+﻿/*
+* Copyright 2014 Seven Spikes Ltd. All rights reserved. (http://www.nop-templates.com)
+* http://www.nop-templates.com/t/licensinginfo
+*/
+
+
+/* QUANTITY BOX & BUY BUTTON */
+
+
+.ajax-cart-button-wrapper {
+	display: inline-block;
+    position: relative;
+    vertical-align: middle;
+}
+.product-grid .ajax-cart-button-wrapper,
+.featured-product-grid .ajax-cart-button-wrapper {
+    width: 40px; height: 40px;
+    margin: 0 5px 0 0;
+}
+.product-grid-bestsellers .ajax-cart-button-wrapper {
+    width: 36px; height: 36px;
+    margin: 0 5px 0 0;
+}
+.ajax-cart-button-wrapper input[type="text"],
+.ajax-cart-button-wrapper select {
+    display: none !important; /*quantity is not supported in this theme, insufficient space*/
+    position: absolute;
+    left: -45px; z-index: 1;
+    text-align: center;
+}
+.product-grid .ajax-cart-button-wrapper input[type="text"],
+.product-grid .ajax-cart-button-wrapper select {
+    width: 40px; height: 40px;
+    transition: 0.5s ease;
+    -webkit-transform: translate(0, -20px);
+    -ms-transform: translate(0, -20px);
+    transform: translate(0, -20px);
+    opacity: 0; min-width: 0;
+}
+.featured-product-grid .ajax-cart-button-wrapper input[type="text"],
+.featured-product-grid .ajax-cart-button-wrapper select {
+
+}
+.product-grid .product-item:hover .ajax-cart-button-wrapper input[type="text"],
+.product-grid .product-item:hover .ajax-cart-button-wrapper select {
+    -webkit-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    transform: translate(0, 0);
+    opacity: 1;
+}
+.product-list .ajax-cart-button-wrapper input[type="text"],
+.product-list .ajax-cart-button-wrapper select {
+    width: 45px;
+    height: 45px;
+}
+.ajax-cart-button-wrapper input[type="button"],
+.ajax-cart-button-wrapper button {
+    width: 100% !important;
+    margin: 0 !important;
+    top: 0 !important;
+}
+.product-grid .hover-variant-two .ajax-cart-button-wrapper {
+    position: relative;
+    top: 50%;
+    margin-top: -20px;
+}
+.add-to-cart .ajax-cart-button-wrapper {
+    width: calc(100% - 71px);
+    margin: 0 0 0 1px;
+}
+
+
+/* LOADER & ERROR WINDOW */
+
+
+.k-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  z-index: 1060;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  opacity: 0.4;
+}
+.nopAjaxCartPanelAjaxBusy {
+    position: fixed;
+	top: 0; left: 0;
+    z-index: 1070;
+    width: 100% !important;
+    height: 100% !important;
+    background-color: rgba(255,255,255,.7);
+}
+/*.nopAjaxCartPanelAjaxBusy[style*="block"] ~ .k-overlay {
+    display: none !important;
+}*/
+.miniProductDetailsPanelAjaxBusy {
+    position: absolute;
+	top: 0; left: 0;
+	z-index: 1;
+    width: 100% !important;
+    height: auto; /*if fixed, loader will be always visible*/
+	overflow: hidden;
+    background: rgba(255,255,255,.7);
+}
+.nopAjaxCartPanelAjaxBusy:after,
+.miniProductDetailsPanelAjaxBusy:after {
+    content: "";
+    position: absolute;
+    top: 0; right: 0;
+    bottom: 0; left: 0;   
+    width: 60px;
+    height: 60px;
+    margin: auto;
+    border-radius: 50%;
+    border-width: 3px;
+    border-style: solid;
+    border-color: #444 transparent;
+    -webkit-animation: spin 1s linear infinite;
+    animation: spin 1s linear infinite;
+}
+    @-webkit-keyframes spin {
+	to { transform: rotate(360deg); }
+}
+	@keyframes spin {
+	to { transform: rotate(360deg); }
+}
+.addProductToCartErrors ul,
+.addProductVariantToCartErrors ul {
+    padding: 70px 20px 60px;
+    text-align: center;
+    font-size: 14px;
+    color: #dd464d;
+}
+.addProductToCartErrors li + li,
+.addProductVariantToCartErrors li + li {
+	margin: 10px 0 0;
+}
+
+
+/* COMMON WINDOW STYLES */
+
+
+.ajaxCart {
+    position: absolute;
+	left: 0 !important;
+    right: 0; z-index: 1070;
+	width: 700px !important;
+    min-width: 0 !important;
+    min-height: 150px !important;
+	max-width: 96%; margin: auto;
+    box-shadow: 0 1px 5px #666;
+    background-color: #f6f6f6;
+	padding: 0 !important;
+}
+.ajaxCart .k-window-titlebar {
+	position: relative;
+	height: 0;
+	margin: 0 !important;
+	font-size: 0;
+}
+.ajaxCart .k-window-titlebar .k-window-title {
+	display: none;
+}
+.ajaxCart .k-window-titlebar .k-window-actions {
+	position: absolute;
+	top: 5px; right: 5px;
+    z-index: 1;
+	font-size: 0;
+}
+.ajaxCart .k-window-titlebar .k-window-actions a {
+	display: block;
+	width: 40px;
+	height: 40px;
+    color: #888;
+}
+.ajaxCart .k-window-titlebar .k-window-actions a:after {
+    content: "\e90a";
+    position: absolute;
+    top: 0; right: 0;
+    bottom: 0; left: 0;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    font-family: 'pacific';
+    font-size: 20px;
+    line-height: 40px;
+    transition: 0.3s ease;
+}
+.ajaxCart .k-window-titlebar .k-window-actions a:hover {
+	color: #444;
+}
+
+.productAddedToCartWindow,
+.miniProductDetailsView {
+    padding: 70px 0 0;
+}
+.productAddedToCartWindowTitle,
+.miniProductDetailsView .product-name {
+    position: absolute;
+    top: 0; right: 0; left: 0;
+    border-bottom: 1px dashed #e6e6e6;
+    padding: 22px 40px 18px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: lighter;
+    text-transform: uppercase;
+    color: #aaa;
+}
+.productAddedToCartWindow:focus,
+.miniProductDetailsView:focus {
+    outline: -webkit-focus-ring-color auto 0;
+}
+
+
+/* PRODUCT ADDED TO CART WINDOW */
+
+
+.productAddedToCartWindowImage {
+    float: left;
+	width: 48.5%;
+    padding: 20px 10px 20px 20px;
+}
+.productAddedToCartWindowImage a {
+	display: block;
+	position: relative;
+	overflow: hidden;	
+}
+.productAddedToCartWindowImage img {
+	width: 100%;
+}
+
+.productAddedToCartWindowDescription {
+    float: right;
+	width: 51.5%;
+    padding: 20px 20px 20px 10px;
+}
+.productAddedToCartWindowDescription h1 {
+	margin: 5px 0 15px;
+	font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #444;
+}
+.productAddedToCartWindowDescription .price {
+	display: block;
+	margin: 0 0 15px;
+	font-size: 18px;
+    font-weight: bold;
+	color: #c09e6c;
+}
+.productAddedToCartWindowDescription .attributeInfo {
+	margin: 0 0 15px;
+    font-size: 14px;
+    line-height: 18px;
+}
+.productAddedToCartWindowDescription .quantity {
+	display: block;
+    font-size: 14px;
+}
+
+.productAddedToCartWindowSummary {
+    clear: both;
+    overflow: hidden;
+}
+.productAddedToCartWindowSummary a {
+	float: left;
+    width: 50%;
+    height: 45px;
+    background-color: #fff;
+    padding: 15px 25px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: 0.3s ease;
+    color: #c09e6c;
+}
+.productAddedToCartWindowSummary a:after {
+    /*content: "\e901";*/ /*disabled*/
+    position: relative;
+    bottom: 1px;
+    margin: 0 -8px 0 12px;
+    font-family: 'pacific';
+    font-size: 8px;
+    font-weight: normal;
+    color: #aaa;
+}
+.productAddedToCartWindowSummary a:hover {
+    background-color: #eee;
+}
+.productAddedToCartWindowSummary div {
+	float: right;
+    width: 50%;
+}
+.productAddedToCartWindowSummary .button-1 {
+    width: 100%;
+    height: 45px;
+	border: none;
+    background-color: #c09e6c;
+    padding: 15px 25px;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: 0.3s ease;
+    color: #fff;
+}
+.productAddedToCartWindowSummary .button-1:hover {
+    background-color: #ae864b;
+}
+
+
+/* PRODUCT GRIDS IN AJAX CART */
+
+
+.ajaxCart .product-grid {
+    clear: both;
+	margin: 20px 0;
+}
+.ajaxCart .product-grid .title {
+    padding: 10px 20px;
+}
+.ajaxCart .product-grid .title strong {
+	font-size: 20px;
+}
+.ajaxCart .product-grid .item-grid {
+	padding: 0 20px;
+}
+.ajaxCart .item-box {
+    width: 18%;
+    clear: none !important;
+    margin: 0 0 0 2.5% !important;
+    border: none;
+    background: none;
+}
+.ajaxCart .item-box:first-child {
+    margin-left: 0 !important;
+}
+.ajaxCart .item-box:nth-child(n+6) {
+	display: none;
+}
+.ajaxCart .item-box .picture {
+    border: 1px solid #eee;
+}
+.ajaxCart .item-box .details {
+    margin-top: 10px;
+    padding: 0;
+}
+.ajaxCart .item-box .product-title {
+	height: 35px;
+	overflow: hidden;
+	font-size: 14px;
+	font-weight: normal;
+}
+.ajaxCart .item-box .product-rating-box,
+.ajaxCart .item-box .tax-shipping-info,
+.ajaxCart .item-box .description,
+.ajaxCart .item-box .prices,
+.ajaxCart .item-box .buttons {
+	display: none;
+}
+.ajaxCart .item-box-overlay-tint {
+    margin: 0;
+}
+
+
+/* PRODUCT DETAILS WINDOW */
+
+
+.miniProductDetailsView .product-essential,
+.miniProductDetailsView .product-collateral {
+	margin: 0;
+}
+.miniProductDetailsView .gallery {
+	display: block; /*Cloud Zoom css override*/
+	float: left;
+	width: 48.5%;
+	margin: 0;
+    padding: 20px 10px 20px 20px;
+}
+.miniProductDetailsView .gallery .picture {
+	padding: 0;
+}
+.miniProductDetailsView .overview {
+    float: right;
+	width: 51.5%;
+    margin: 0;
+    padding: 20px 20px 20px 10px;
+}
+.miniProductDetailsView .product-variant-name {
+	margin: 5px 0 15px;
+	font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #444;
+}
+.miniProductDetailsView .add-to-cart {
+    overflow: hidden;
+    margin: 0;
+}
+.miniProductDetailsView .giftcard {
+	margin: 0;
+}
+.miniProductDetailsView .message-error {
+	clear: both;
+	margin: 5px 0 0;
+    font-size: 13px;
+}
+.miniProductDetailsView .overview input,
+.miniProductDetailsView .overview select,
+.miniProductDetailsView .overview textarea {
+	max-width: 100%;
+}
+
+
+
+@media all and (min-width: 768px) {
+
+    .product-list .ajax-cart-button-wrapper input[type="text"],
+    .product-list .ajax-cart-button-wrapper select {
+        left: -50px;
+    }
+    .product-list .ajax-cart-button-wrapper {
+        margin: 0 0 0 5px;
+    }
+}
+
+@media all and (min-width: 1801px) {
+
+    .product-grid .ajax-cart-button-wrapper {
+        width: calc(100% - 130px);
+    }
+    .product-grid .quick-view-button ~ .ajax-cart-button-wrapper {
+        width: calc(100% - 150px);
+    }
+    .featured-product-grid .ajax-cart-button-wrapper,
+    .featured-product-grid .ajax-cart-button-wrapper input[type="button"] {
+        width: auto !important;
+    }
+    .product-grid-bestsellers .ajax-cart-button-wrapper {
+        width: 40px;
+        height: 40px;
+    }
+}

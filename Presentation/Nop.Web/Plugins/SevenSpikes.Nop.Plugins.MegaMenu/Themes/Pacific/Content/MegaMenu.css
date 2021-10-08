@@ -1,0 +1,191 @@
+﻿/*
+* Copyright 2014 Seven Spikes Ltd. All rights reserved. (http://www.nop-templates.com)
+* http://www.nop-templates.com/t/licensinginfo
+*/
+
+.mega-menu, .menu-title,
+.mega-menu .dropdown {
+	display: none;
+}	 
+
+@media all and (min-width: 1261px) {
+
+/* handle Mega Menu & Search overlap conflict*/
+
+.header-menu {
+    z-index: 1116;
+}
+.header-menu.disable {
+    z-index: 1110;
+}
+.search-box-opener.open {
+    background-color: transparent;
+}
+.search-box-opener.open:before {
+    background-color: transparent;
+    opacity: 0;
+}
+.search-box-opener.open:after {
+    background-color: transparent;
+}
+
+/* MEGA MENU styles */
+
+.menu-title,
+.close-menu {
+	display: none;
+}
+.mega-menu {
+	display: block;
+	position: relative;
+}
+.mega-menu-responsive {
+	display: none !important;
+}
+
+.mega-menu .with-dropdown:hover ~ li {
+    /*animation: positionfix 0s;
+    animation-delay: 0.7s;
+    animation-fill-mode: forwards;*/
+
+    position: relative; z-index: -1; /* fix for overlapping menu items when menu is more than 1 line */
+}
+    /*@-webkit-keyframes positionfix {
+	to { position: relative; z-index: -1; }
+}
+	@keyframes positionfix {
+	to { position: relative; z-index: -1; }
+}*/
+
+.mega-menu .dropdown {
+	display: none;
+	position: absolute;
+	left: 0; z-index: 99;
+    width: 1000px;
+    margin-top: 20px;
+	box-shadow: 0 1px 20px rgba(0,0,0,0.2);
+	background-color: #fff;
+    /*animation: fadein 0.7s;*/
+    animation: fadein 0.1s; /*there's a rendering delay for fullwidth dropdowns, thus transition time must be short*/
+}
+.wrapped .mega-menu .dropdown {
+    margin-top: 5px;
+}
+.mega-menu .dropdown:before {
+	content: "";
+	position: absolute;
+	top: -20px; left: 0;
+	width: 100%; height: 20px;
+	background-color: transparent;
+}
+.wrapped .mega-menu .dropdown:before {
+	top: -15px;
+	height: 15px;
+}
+.mega-menu .dropdown.active {
+	display: block;
+}
+
+.mega-menu .row {
+	display: table;
+    table-layout: fixed;
+    width: 100%;
+}
+.mega-menu .row + .row {
+	border-top: 1px solid #eee;
+}
+.mega-menu .box {
+	display: table-cell;
+}
+.mega-menu .box + .box {
+	border-left: 1px solid #eee;
+}
+.mega-menu .boxes-1 .box {
+    width: 100%;
+}
+.mega-menu .boxes-2 .box {
+    width: 50%;
+}
+.mega-menu .boxes-3 .box {
+    width: 33.333%;
+}
+.mega-menu .boxes-4 .box {
+    width: 25%;
+}
+.mega-menu .boxes-5 .box {
+    width: 20%;
+}
+.mega-menu .boxes-6 .box {
+    width: 16.666%;
+}
+.mega-menu .boxes-7 .box {
+    width: 14.285%;
+}
+.mega-menu .boxes-8 .box {
+    width: 12.5%;
+}
+.mega-menu .empty-box {
+	display: table-cell;
+    border-left: 1px solid #eee;
+}
+
+.mega-menu .box .title {
+	border-bottom: 1px solid #eee;
+	padding: 20px;
+    text-align: left;
+	font-size: 14px;
+    font-weight: bold;
+	text-transform: uppercase;
+    color: #222;
+}
+.mega-menu .box .wrapper {
+    overflow: hidden;
+    padding: 15px 20px;
+}
+.mega-menu .box .picture {
+	font-size: 0;
+}
+.mega-menu .box .picture a {
+	display: block;
+}
+
+.mega-menu .full .picture {
+	float: left;
+	width: 70px;
+	height: 70px;
+	overflow: hidden;
+	text-align: center;
+}
+.mega-menu .subcategories {
+	margin-left: 85px;
+    text-align: left;
+}
+.mega-menu .subcategory-item + li {
+	margin-top: 10px;
+}
+.mega-menu .subcategory-item a {
+	font-size: 14px;
+}
+.mega-menu .subcategory-item a:hover {
+    color: #222;
+}
+.mega-menu .subcategory-item a.view-all {
+	text-decoration: underline;
+    color: #222;
+}
+
+}
+
+@media all and (min-width: 1460px) {
+
+    .mega-menu .dropdown {
+	    width: 100%;
+    }
+}
+
+@media all and (min-width: 1801px) {
+
+    .header-menu.disable {
+        z-index: 1116;
+    }
+}

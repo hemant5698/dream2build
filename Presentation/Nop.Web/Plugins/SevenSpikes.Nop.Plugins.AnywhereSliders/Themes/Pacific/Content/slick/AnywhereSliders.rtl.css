@@ -1,0 +1,27 @@
+
+.anywhere-slider .slick-prev {
+    right: 0;
+    left: auto;
+}
+.anywhere-slider .slick-prev:before {
+    content: '\e901';
+}
+.anywhere-slider .slick-next {
+    left: 0;
+    right: auto;
+}
+.anywhere-slider .slick-next:before {
+    content: '\e902';
+}
+
+@media all and (min-width: 1261px) {
+
+    .category-boxes-layout-1 .slider-wrapper {
+        left: 0;
+        right: 20px;
+    }
+	.category-boxes-layout-1 .slick-track {
+        right: 0;
+        left: auto !important;
+    }
+}

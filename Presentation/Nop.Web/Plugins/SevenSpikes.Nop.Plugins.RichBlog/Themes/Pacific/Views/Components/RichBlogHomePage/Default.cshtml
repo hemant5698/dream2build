@@ -1,0 +1,150 @@
+﻿@model IList<BlogPostModel7Spikes>
+
+@inject IViewComponentSelector viewComponentSelector
+
+<div class="rich-blog-homepage">
+    <div class="title">
+        <strong>@T("SevenSpikes.RichBlog.Public.LatestFromBlog")</strong>
+    </div>
+    <div class="blog-posts">
+
+        @if (Model.Count <= 3)
+        {
+            @foreach (var post in Model)
+            {
+                <div class="blog-post">
+                    <div class="post-picture">
+                        @if (!string.IsNullOrWhiteSpace(post.HomePagePictureUrl))
+                        {
+                            <a href="@Url.RouteUrl("BlogPost", new { SeName = post.SeName })">
+                                @if (viewComponentSelector.SelectComponent("LazyLoadImage") != null)
+                                {
+                                    @await Component.InvokeAsync("LazyLoadImage", new (string Key, string Value)[]
+                                    {
+                                        ("src", post.HomePagePictureUrl),
+                                        ("alt", post.Title),
+                                        ("title", post.Title)
+                                    })
+                                }
+                                else
+                                {
+                                    <img src="@post.HomePagePictureUrl" alt="@post.Title" title="@post.Title" />
+                                }
+                            </a>
+                        }
+                    </div>
+                    <div class="post-details">
+                        <div class="post-heading">
+                            <a class="post-title" href="@Url.RouteUrl("BlogPost", new { SeName = post.SeName })">@post.Title</a>
+                        </div>
+                        <div class="post-date mobile">
+                            <span class="day">@post.CreatedOn.Day.ToString("00")</span>
+                            <span class="month">@post.CreatedOn.ToString("MMMM")</span>
+                        </div>
+                        <div class="post-description">
+                            @Html.Raw(!string.IsNullOrEmpty(post.BodyOverview) ? post.BodyOverview : post.Body)
+                        </div>
+                        <div class="post-links">
+                            <div class="post-date desktop">
+                                <span class="day">@post.CreatedOn.Day.ToString("00")</span>
+                                <span class="month">@post.CreatedOn.ToString("MMMM")</span>
+                            </div>
+                            @if (post.AllowComments)
+                            {
+                                <span class="read-comments">@string.Format(T("SevenSpikes.RichBlog.Public.Blog.Post.Comments").Text, post.NumberOfComments)</span>
+                            }
+                            <a class="read-more" href="@Url.RouteUrl("BlogPost", new { SeName = post.SeName })"><span>@T("SevenSpikes.RichBlog.Public.ReadMore")</span></a>
+                        </div>
+                    </div>
+                </div>
+            }
+            <div class="view-all">
+                <a href="@Url.RouteUrl("Blog")"><span>@T("SevenSpikes.RichBlog.Public.ViewAllBlogPosts")</span></a>
+            </div>
+        }
+        else if (Model.Count > 3)
+        {
+            var firstPost = Model[0];
+
+            <div class="left-side">
+                <div class="blog-post first">
+                    <div class="post-picture">
+                        @if (!string.IsNullOrWhiteSpace(firstPost.HomePagePictureUrl))
+                        {
+                            <a href="@Url.RouteUrl("BlogPost", new { SeName = firstPost.SeName })">
+                                <img src="@firstPost.HomePagePictureUrl" alt="@firstPost.Title" title="@firstPost.Title" />
+                            </a>
+                        }
+                    </div>
+                    <div class="post-details">
+                        <div class="post-heading">
+                            <a class="post-title" href="@Url.RouteUrl("BlogPost", new { SeName = firstPost.SeName })">@firstPost.Title</a>
+                        </div>
+                        <div class="post-date mobile">
+                            <span class="day">@firstPost.CreatedOn.Day.ToString("00")</span>
+                            <span class="month">@firstPost.CreatedOn.ToString("MMMM")</span>
+                        </div>
+                        <div class="post-description">
+                            @Html.Raw(!string.IsNullOrEmpty(firstPost.BodyOverview) ? firstPost.BodyOverview : firstPost.Body)
+                        </div>
+                        <div class="post-links">
+                            <div class="post-date desktop">
+                                <span class="day">@firstPost.CreatedOn.Day.ToString("00")</span>
+                                <span class="month">@firstPost.CreatedOn.ToString("MMMM")</span>
+                            </div>
+                            @if (firstPost.AllowComments)
+                            {
+                                <span class="read-comments">@string.Format(T("SevenSpikes.RichBlog.Public.Blog.Post.Comments").Text, firstPost.NumberOfComments)</span>
+                            }
+                            <a class="read-more" href="@Url.RouteUrl("BlogPost", new { SeName = firstPost.SeName })"><span>@T("SevenSpikes.RichBlog.Public.ReadMore")</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            var remainingPosts = Model.Skip(1);
+
+            <div class="right-side">
+                @foreach (var post in remainingPosts)
+                {
+                    <div class="blog-post">
+                        <div class="post-picture">
+                            @if (!string.IsNullOrWhiteSpace(post.HomePagePictureUrl))
+                            {
+                                <a href="@Url.RouteUrl("BlogPost", new { SeName = post.SeName })">
+                                    <img src="@post.HomePagePictureUrl" alt="@post.Title" title="@post.Title" />
+                                </a>
+                            }
+                        </div>
+                        <div class="post-details">
+                            <div class="post-heading">
+                                <a class="post-title" href="@Url.RouteUrl("BlogPost", new { SeName = post.SeName })">@post.Title</a>
+                            </div>
+                            <div class="post-date mobile">
+                                <span class="day">@post.CreatedOn.Day.ToString("00")</span>
+                                <span class="month">@post.CreatedOn.ToString("MMMM")</span>
+                            </div>
+                            <div class="post-description">
+                                @Html.Raw(!string.IsNullOrEmpty(post.BodyOverview) ? post.BodyOverview : post.Body)
+                            </div>
+                            <div class="post-links">
+                                <div class="post-date desktop">
+                                    <span class="day">@post.CreatedOn.Day.ToString("00")</span>
+                                    <span class="month">@post.CreatedOn.ToString("MMMM")</span>
+                                </div>
+                                @if (post.AllowComments)
+                                {
+                                    <span class="read-comments">@string.Format(T("SevenSpikes.RichBlog.Public.Blog.Post.Comments").Text, post.NumberOfComments)</span>
+                                }
+                                <a class="read-more" href="@Url.RouteUrl("BlogPost", new { SeName = post.SeName })"><span>@T("SevenSpikes.RichBlog.Public.ReadMore")</span></a>
+                            </div>
+                        </div>
+                    </div>
+                }
+                <div class="view-all">
+                    <a href="@Url.RouteUrl("Blog")"><span>@T("SevenSpikes.RichBlog.Public.ViewAllBlogPosts")</span></a>
+                </div>
+            </div>
+        }
+    </div>
+</div>

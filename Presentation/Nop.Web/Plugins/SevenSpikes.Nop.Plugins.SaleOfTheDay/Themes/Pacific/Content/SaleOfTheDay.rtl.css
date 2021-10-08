@@ -1,0 +1,46 @@
+﻿
+.sale-of-the-day-offer .new-prev {
+    right: calc(50% - 50px);
+    left: auto;
+}
+.sale-of-the-day-offer .new-next {
+    left: calc(50% - 50px);
+    right: auto;
+}
+.sale-of-the-day-offer .new-prev:before {
+    content: "\e901";
+}
+.sale-of-the-day-offer .new-next:before {
+    content: "\e902";
+}
+.sale-of-the-day-offer .timer-group + div {
+    border-right: 1px solid #ddd;
+    border-left: none;
+}
+.sale-of-the-day-offer .old-price {
+    margin-right: 18px;
+    margin-left: 0;
+} 
+.sale-of-the-day-offer .link:after {
+    margin: 0 10px 0 -15px;
+}
+
+@media all and (min-width: 768px) {
+
+    .sale-of-the-day-offer .new-prev {
+        margin: 0 0 0 20px;
+    }
+    .sale-of-the-day-offer .new-next {
+        margin: 0 20px 0 0;
+    }
+    .sale-of-the-day-offer .overview {
+        border-right: 1px solid #eee;
+        border-left: none;
+    }
+    .sale-of-the-day-offer .product-name,
+    .sale-of-the-day-offer .product-reviews-overview, 
+    .sale-of-the-day-offer .short-description,
+    .sale-of-the-day-offer .prices {
+        text-align: right;
+    }
+}

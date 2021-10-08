@@ -1,0 +1,71 @@
+﻿
+.product-no-reviews,
+.product-review-links {
+	display: block !important;
+}
+
+.ui-tabs.productTabs {
+    clear: both;
+    margin: 0 0 20px;
+}
+.ui-tabs .product-specs-box,
+.ui-tabs .product-reviews-page,
+.ui-tabs .full-description {
+    display: block;
+}
+.ui-tabs .full-description {
+	margin-bottom: 0;
+}
+.product-collateral > div,
+.product-specs-box .data-table,
+.product-specs-box .table-wrapper {
+	margin-bottom: 0;
+}
+.ui-tabs .product-review-list {
+    margin: 0 0 30px;
+    border: none;
+    padding: 0;
+}
+.ui-tabs .product-review-list .title {
+    display: none;
+}
+.ui-tabs .product-review-item {
+    margin: 0 0 40px;
+    border-bottom: 1px solid #eee;
+    padding: 0 0 30px;
+}
+.ui-tabs .write-review {
+    max-width: 500px;
+    margin: auto;
+    border: none;
+    padding: 0;
+}
+.ui-tabs .write-review .title {
+    margin: -35px 0 20px;
+    border: none;
+}
+.ui-tabs .write-review .buttons {
+    margin: 0 0 10px;
+}
+
+
+@media all and (min-width: 1000px) {
+
+    .product-page-layout-one .gallery-wrapper,
+    .product-page-layout-one .overview-wrapper {
+        margin-bottom: 50px;
+    }
+    .product-page-layout-one .ui-tabs.productTabs {
+        margin-bottom: 50px;
+    }
+    .product-page-layout-two .ui-tabs.productTabs {
+        margin-bottom: 35px;
+    }
+}
+
+@media all and (min-width: 1601px) {
+
+    .product-page-layout-one .write-review .title {
+        margin-top: -20px;
+    }
+}

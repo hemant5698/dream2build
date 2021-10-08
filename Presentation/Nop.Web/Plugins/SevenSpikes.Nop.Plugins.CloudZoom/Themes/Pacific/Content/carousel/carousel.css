@@ -1,0 +1,147 @@
+/*
+* Copyright 2016 Seven Spikes Ltd. All rights reserved. (http://www.nop-templates.com)
+* http://www.nop-templates.com/t/licensinginfo
+*/
+
+.picture-thumbs.in-carousel {
+    max-width: 100%;
+    margin: 10px 10px 0;
+}
+.picture-thumbs .picture-thumbs-list {
+    margin: 0 -4px;
+}
+.picture-thumbs .picture-thumbs-item {
+    padding: 0 5px;
+}
+
+/* arrows nav */
+
+.picture-thumbs .slick-prev,
+.picture-thumbs .slick-next {
+    position: absolute;
+    top: 0; bottom: 0;
+    z-index: 2;
+    width: 35px;
+    border: none;
+    background: rgba(136,136,136,.5);
+    font-size: 0;
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+.picture-thumbs .slick-prev:before,
+.picture-thumbs .slick-next:before {
+    content: "";
+    position: absolute;
+    top: 0; right: 0;
+    bottom: 0; left: 0;
+    width: 10px;
+    height: 10px;
+    margin: auto;
+    text-align: center;
+    font-family: 'pacific';
+    font-size: 8px;
+    line-height: 10px;
+    color: #fff;
+}
+.picture-thumbs .slick-prev:before {
+    content: '\e902';
+}
+.picture-thumbs .slick-next:before {
+    content: '\e901';
+}
+.picture-thumbs .slick-prev {
+    left: 5px;
+}
+.picture-thumbs .slick-next {
+    right: 5px;
+}
+.picture-thumbs .slick-prev:hover,
+.picture-thumbs .slick-next:hover {
+    background: rgba(136,136,136,.8);
+}
+.picture-thumbs .slick-prev.slick-disabled,
+.picture-thumbs .slick-next.slick-disabled {
+    cursor: default;
+    opacity: 0.5;
+}
+
+/* dots nav */
+
+.gallery .slick-dots {
+    margin: 10px;
+    text-align: center;
+    font-size: 0;
+}
+.gallery .slick-dots li {
+    display: inline-block;
+    margin: 10px 2px;
+}
+.gallery .slick-dots button {
+    position: relative;
+    width: 30px;
+    height: 4px;
+    border: none;
+    background: #dedede;
+    font-size: 0;
+}
+.gallery .slick-dots button:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: -10px; right: 0;
+    bottom: -10px; left: 0;
+    background-color: transparent;
+}
+.gallery .slick-dots .slick-active button {
+    background-color: #c09e6c;
+}
+
+/* items */
+
+.picture-thumbs a.cloudzoom-gallery {
+    display: block !important;
+    float: none !important;
+    width: auto !important;
+    height: auto !important;
+    margin: 0 !important;
+}
+.picture-thumbs a.cloudzoom-gallery:before {
+    content: "";
+    display: block;
+    padding-top: 100%;
+}
+
+
+@media all and (min-width: 840px) and (max-width: 1000px) {
+
+    .picture-thumbs.in-carousel {
+        max-width: 800px;
+        margin: 0 auto 10px;
+    }
+}
+
+@media all and (min-width: 1261px) {
+
+    .gallery .picture-thumbs.in-carousel {
+        margin: 0 15px 15px;
+    }
+    .picture-thumbs .picture-thumbs-list {
+        margin: 0 -7px 0 -7px;
+    }
+    .picture-thumbs .picture-thumbs-item {
+        padding: 0 7px;
+    }
+    .picture-thumbs .slick-prev {
+        left: 7px;
+    }
+    .picture-thumbs .slick-next {
+        right: 7px;
+    }
+}
+
+@media all and (min-width: 1801px) {
+
+    .gallery .picture-thumbs.in-carousel {
+        margin: -15px 30px 30px;
+    }
+}

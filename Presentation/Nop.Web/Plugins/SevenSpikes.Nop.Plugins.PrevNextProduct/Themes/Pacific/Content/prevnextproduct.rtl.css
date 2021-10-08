@@ -1,0 +1,44 @@
+﻿
+.previous-product a {
+    text-align: right;
+}
+.next-product a {
+    text-align: left;
+}
+.previous-product a:before {
+    content: "\e901";
+    float: right;
+    margin: 0 0 0 -15px;
+}
+.next-product a:before {
+    content: "\e902";
+    float: left;
+    margin: 0 -15px 0 0;
+}
+.previous-product-label {
+    float: right;
+    right: 5px;
+    left: auto;
+    margin: 0 0 0 15px;
+}
+.next-product-label {
+    float: left;
+    left: 5px;
+    right: auto;
+    margin: 0 15px 0 0;
+}
+
+@media all and (min-width: 1261px) {
+
+    .prev-next-product {
+        left: 26px;
+        right: auto;
+    }
+}
+@media all and (min-width: 1801px) {
+
+    .prev-next-product {
+        left: 67px;
+        right: auto;
+    }
+}

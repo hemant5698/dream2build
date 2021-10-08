@@ -1,0 +1,5 @@
+﻿{
+  "DataConnectionString": "Data Source=LAB76\\SQLEXPRESS2019;Initial Catalog=Dream2Build_43;Integrated Security=False;Persist Security Info=False;User ID=sa;Password=test#123",
+  "DataProvider": "sqlserver",
+  "RawDataSettings": {}
+}

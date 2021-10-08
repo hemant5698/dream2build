@@ -1,0 +1,63 @@
+
+.product-grid .ajax-cart-button-wrapper,
+.featured-product-grid .ajax-cart-button-wrapper {
+    margin: 0 0 0 5px;
+}
+.product-grid-bestsellers .ajax-cart-button-wrapper {
+    margin: 0 0 0 5px;
+}
+.ajax-cart-button-wrapper input[type="text"],
+.ajax-cart-button-wrapper select {
+    right: -45px;
+    left: auto;
+}
+.add-to-cart .ajax-cart-button-wrapper {
+    margin: 0 1px 0 0;
+}
+.ajaxCart .k-window-titlebar .k-window-actions {
+    right: auto;
+    left: 5px;
+}
+.productAddedToCartWindowImage {
+    float: right;
+    padding: 20px 20px 20px 10px;
+}
+.productAddedToCartWindowDescription {
+    float: left;
+    padding: 20px 10px 20px 20px;
+}
+.productAddedToCartWindowSummary a {
+    float: right;
+}
+.productAddedToCartWindowSummary a:after {
+    margin: 0 12px 0 -8px;
+}
+.productAddedToCartWindowSummary div {
+    float: left;
+}
+.ajaxCart .item-box {
+    margin: 0 2.5% 0 0 !important;
+}
+.ajaxCart .item-box:first-child {
+    margin-right: 0 !important;
+}
+.miniProductDetailsView .gallery {
+    float: right;
+    padding: 20px 20px 20px 10px;
+}
+.miniProductDetailsView .overview {
+    float: left;
+    padding: 20px 10px 20px 20px;
+}
+
+@media all and (min-width: 768px) {
+
+    .product-list .ajax-cart-button-wrapper input[type="text"],
+    .product-list .ajax-cart-button-wrapper select {
+        right: -50px;
+        left: auto;
+    }
+    .product-list .ajax-cart-button-wrapper {
+        margin: 0 5px 0 0;
+    }
+}

@@ -1,0 +1,30 @@
+﻿
+.store-search-box span.search-box-text.narrow {
+    float: right;
+}
+
+.store-search-box .search-box-select {
+    left: 40px;
+    right: auto;
+}
+
+.instant-search-item .detail {
+    padding-right: 15px;
+    padding-left: 0;
+    text-align: right;
+}
+
+@media all and (min-width: 768px) {
+
+    .instantSearch {
+        margin: 0 -1px 0 0 !important;
+    }
+}
+
+@media all and (min-width: 1261px) {
+
+    .store-search-box .search-box-select {
+        left: 75px;
+        right: auto;
+    }
+}

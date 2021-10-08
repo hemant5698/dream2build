@@ -1,0 +1,11 @@
+﻿
+@media all and (min-width: 1261px) {
+
+    .spc-products .product-grid .item-box {
+        margin: 0 20px 0 0 !important;
+    }
+    .spc-categories .category-details {
+        border-right: 1px solid #eee;
+        border-left: none;
+    }
+}

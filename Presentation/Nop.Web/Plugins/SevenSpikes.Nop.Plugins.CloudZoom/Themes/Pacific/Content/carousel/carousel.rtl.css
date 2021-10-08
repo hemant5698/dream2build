@@ -1,0 +1,25 @@
+
+.picture-thumbs .slick-prev {
+    right: 5px;
+    left: auto;
+}
+.picture-thumbs .slick-next {
+    left: 5px;
+    right: auto;
+}
+
+@media all and (min-width: 1261px) {
+
+    .picture-thumbs .picture-thumbs-list {
+        margin: 0 -7px 0 -7px;
+    }
+
+    .picture-thumbs .slick-prev {
+        right: 7px;
+        left: auto;
+    }
+    .picture-thumbs .slick-next {
+        left: 7px;
+        right: auto;
+    }
+}

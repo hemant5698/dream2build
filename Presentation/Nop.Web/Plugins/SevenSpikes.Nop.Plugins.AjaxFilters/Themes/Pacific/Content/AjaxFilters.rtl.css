@@ -1,0 +1,105 @@
+﻿
+.filter-block a.clearFilterOptions,
+.filter-block a.clearPriceRangeFilter {
+    right: auto;
+    left: 40px;
+}
+.selected-options-list > li {
+    margin: 0 0 10px 10px;
+    text-align: right;
+}
+.selected-options-list .option {
+    float: right;
+    margin: 0 0 5px 5px;
+}
+.selected-options-list .option:after {
+    margin-right: 8px;
+    margin-left: 0;
+}
+.priceRangeMinPanel, .specification-min-panel {
+    float: right;
+}
+.priceRangeMaxPanel, .specification-max-panel {
+    float: left;
+}
+.currentMinPrice, .current-min-value {
+    float: right;
+}
+.currentMaxPrice, .current-max-value {
+    float: left;
+}
+.filtersGroupPanel .checkbox-list label {
+    padding: 6px 25px 6px 0px;
+    text-align: right;
+}
+.filtersGroupPanel .checkbox-list label:before {
+    right: 0;
+    left: auto;
+}
+.filtersGroupPanel .checkbox-list .checked label:after {
+    right: 0;
+    left: auto;
+}
+.colorOptions li {
+    margin-right: 5px;
+    margin-left: 0;
+}
+.colorOptions label {
+    padding-right: 32px !important;
+    padding-left: 0 !important;
+}
+.colorOptions .color {
+    right: -5px;
+    left: auto;
+}
+.ajaxFilters .k-window-actions {
+    right: auto;
+    left: 5px;
+}
+
+@media all and (max-width: 1260px) {
+
+    .nopAjaxFilters7Spikes {
+        right: 0;
+        left: auto;
+    }
+    .filtersTitlePanel .close-filters {
+        right: 100%;
+        left: auto;
+    }
+}
+
+@media all and (min-width: 1261px) {
+
+    .filtersTitlePanel:before {
+        margin-right: 0;
+        margin-left: 10px;
+    }
+    .clearFilterOptionsAll {
+        float: left;
+    }
+    .number-of-returned-products {
+        text-align: right;
+    }
+    .filtersPanelNav .filter-block .toggleControl {
+        border-color: transparent transparent rgba(0,0,0,.1) rgba(0,0,0,.1);
+    }
+    .filtersPanelNav .filter-block .toggleControl:after {
+        right: 15px;
+        left: auto;
+    }
+    .category-page-one-column .checkbox-item {
+        margin-right: 0;
+        margin-left: 20px;
+    }
+    .category-page-one-column a.clearFilterOptions,
+    .category-page-one-column a.clearPriceRangeFilter {
+        margin-right: 0;
+        margin-left: 30px;
+    }
+    .category-page-one-column a.clearFilterOptions:after,
+    .category-page-one-column a.clearPriceRangeFilter:after {
+        margin-right: 5px;
+        margin-left: 0;
+    }
+}

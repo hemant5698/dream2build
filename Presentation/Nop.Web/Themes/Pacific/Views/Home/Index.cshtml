@@ -1,0 +1,63 @@
+﻿@using Nop.Core
+@using Nop.Services.Configuration
+
+@inject ISettingService settingService
+@inject IStoreContext storeContext
+
+@{
+    Layout = "_ColumnsOne";
+
+    //page class
+    Html.AppendPageCssClassParts("html-home-page");
+
+    var storeId = storeContext.CurrentStore.Id;
+
+    var homePageCategoryBoxLayout = settingService.GetSettingByKey("pacificthemesettings.homepagecategoryboxlayout", "layout-1", storeId, true);
+    var homePageCategoryBoxLayoutClass = "category-boxes-" + homePageCategoryBoxLayout;
+
+    var homePageWelcomeText = await Component.InvokeAsync("TopicBlock", new { systemName = "HomePageText" });
+    var homePageWelcomeTextImageId = settingService.GetSettingByKey("pacificthemesettings.homepagetextbackgroundimageid", storeId, 0);
+    var homePageWelcomeTextImageClass = string.Empty;
+    if (homePageWelcomeTextImageId != 0)
+    {
+        homePageWelcomeTextImageClass = "with-image-background";
+    }
+
+    var homePageNumberOfFeaturedProductsPerRow = settingService.GetSettingByKey("pacificthemesettings.homepagenumberoffeaturedproducts", "six", storeId, true);
+    var homePageNumberOfFeaturedProductsPerRowClass = "items-" + homePageNumberOfFeaturedProductsPerRow;
+}
+<div class="page home-page @homePageNumberOfFeaturedProductsPerRowClass">
+    <div class="page-body">
+        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HomepageTop })
+        <div class="home-page-categories-wrapper">
+            <div class="home-page-slider">
+                @await Component.InvokeAsync("Widget", new { widgetZone = "home_page_main_slider" })
+            </div>
+        	@await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HomepageBeforeCategories })
+            @*@await Component.InvokeAsync("HomepageCategories")*@
+        </div>
+        @if(!String.IsNullOrEmpty(homePageWelcomeText.ToHtmlString()))
+        {
+            <div class="home-page-welcome-message @homePageWelcomeTextImageClass">
+                @homePageWelcomeText
+            </div>
+        }
+        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HomepageBeforeProducts })
+        @await Component.InvokeAsync("HomepageProducts")
+        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HomepageBeforeBestSellers })
+        @{
+            var bestSellers = await Component.InvokeAsync("HomepageBestSellers");
+        }
+        @if (!String.IsNullOrEmpty(bestSellers.ToHtmlString()))
+        {
+            <div class="bestsellers-wrapper">
+                @await Component.InvokeAsync("HomepageBestSellers")
+            </div>
+        }
+        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HomepageBeforeNews })
+        @await Component.InvokeAsync("HomepageNews")
+        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HomepageBeforePoll })
+        @await Component.InvokeAsync("HomepagePolls")
+        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HomepageBottom })
+    </div>
+</div>

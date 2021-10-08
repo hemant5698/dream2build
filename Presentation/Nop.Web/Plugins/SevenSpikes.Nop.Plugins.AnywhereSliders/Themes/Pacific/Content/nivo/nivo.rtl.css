@@ -1,0 +1,23 @@
+
+.nivo-directionNav a.nivo-prevNav {
+    right: 0;
+    left: auto;
+}
+.nivo-directionNav a.nivo-nextNav {
+    left: 0;
+    right: auto;
+}
+.nivo-directionNav a.nivo-prevNav:before {
+    content: '\e901';
+}
+.nivo-directionNav a.nivo-nextNav:before {
+    content: '\e902';
+}
+
+@media all and (min-width: 1261px) {
+
+    .category-boxes-layout-1 .slider-wrapper {
+        left: 0;
+        right: 20px;
+    }
+}

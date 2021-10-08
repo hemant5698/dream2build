@@ -1,0 +1,14 @@
+﻿
+@media all and (min-width: 768px) {
+
+    .product-list .item-box .ribbon-wrapper {
+        float: right;
+    }
+}
+
+@media all and (min-width: 1261px) {
+
+    .featured-product-grid .ribbon-wrapper {
+        float: right;
+    }
+}

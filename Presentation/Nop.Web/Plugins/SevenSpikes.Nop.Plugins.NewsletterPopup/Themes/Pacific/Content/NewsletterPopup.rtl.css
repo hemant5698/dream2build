@@ -1,0 +1,38 @@
+﻿
+.newsletter-subscribe-popup {
+    background-position: left;
+}
+.newsletter-subscribe-popup .newsletter-subscribe-button:before {
+    margin-left: 8px;
+    margin-left: 0;
+}
+.newsletter-subscribe-popup .options input {
+    right: 0;
+    left: auto;
+}
+.newsletter-subscribe-popup .options label {
+    padding: 5px 20px 5px 0;
+}
+.newsletter-subscribe-popup .options label:before {
+    right: 0;
+    left: auto;
+}
+.newsletter-subscribe-popup .options input[type='radio']:checked ~ label:after {
+    right: 3px;
+    left: auto;
+}
+.newsletter-subscribe-popup .newspetter-popup-inputs label {
+    padding: 6px 25px 6px 0px;
+}
+.newsletter-subscribe-popup .newspetter-popup-inputs label:before {
+    right: 0;
+    left: auto;
+}
+.newsletter-subscribe-popup .newspetter-popup-inputs input:checked ~ label:after {
+    right: -1px;
+    left: auto;
+}
+.newsletter-subscribe-popup .close-popup {
+    left: 5px;
+    right: auto;
+}

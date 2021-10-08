@@ -1,0 +1,113 @@
+﻿/*
+* Copyright 2014 Seven Spikes Ltd. All rights reserved. (http://www.nop-templates.com)
+* http://www.nop-templates.com/t/licensinginfo
+*/
+
+.prev-next-product {
+    margin: 0 0 20px;
+    text-align: center;
+    font-size: 0;
+}
+.previous-product,
+.next-product {
+    display: inline-block;
+    margin: 0 3px;
+    border: 1px solid #eee;
+    background-color: #fff;
+}
+.previous-product {
+}
+.next-product {
+}
+.previous-product a,
+.next-product a {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    line-height: 50px;
+}
+.previous-product a {
+	text-align: left;
+}
+.next-product a {
+	text-align: right;
+}
+.previous-product a:before,
+.next-product a:before {
+    display: inline-block;
+    width: 50px;
+    text-align: center;
+    font-family: 'pacific';
+    font-size: 8px;
+}
+.previous-product a:before {
+    content: "\e902";
+    float: left;
+    margin: 0 -15px 0 0;
+}
+.next-product a:before {
+    content: "\e901";
+    float: right;
+    margin: 0 0 0 -15px;
+}
+.previous-product a:hover,
+.next-product a:hover {
+    opacity: 0.9;
+}
+.previous-product-label,
+.next-product-label {
+    display: inline-block;
+    position: relative;
+    max-width: 0;
+    overflow: hidden;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: 1s linear;
+}
+.previous-product-label {
+    float: left;
+    left: 5px;
+    margin: 0 15px 0 0;
+}
+.next-product-label {
+    float: right;
+    right: 5px;
+    margin: 0 0 0 15px;
+}
+.previous-product:hover
+.previous-product-label,
+.next-product:hover
+.next-product-label {
+    max-width: 100px;
+}
+.previous-product-title,
+.next-product-title {
+    display: none;
+    max-width: 100%;
+	overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+@media all and (max-width: 1260px) {
+
+    .prev-next-product {
+        display: none;
+    }
+}
+
+@media all and (min-width: 1261px) {
+
+    .prev-next-product {
+        position: absolute;
+        top: -13px; right: 26px;
+    }
+}
+
+@media all and (min-width: 1801px) {
+
+    .prev-next-product {
+        right: 67px;
+    }
+}

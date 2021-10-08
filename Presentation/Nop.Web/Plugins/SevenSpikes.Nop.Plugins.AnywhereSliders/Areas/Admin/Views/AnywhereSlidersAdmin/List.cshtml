@@ -1,0 +1,111 @@
+﻿@inject AdminAreaSettings adminAreaSettings
+
+@{
+    Layout = AdminViewLocations.AdminLayoutViewPath;
+
+    var defaultGridPageSize = adminAreaSettings.DefaultGridPageSize;
+    var gridPageSizes = adminAreaSettings.GridPageSizes;
+
+    Html.SetActiveMenuItemSystemName("SevenSpikes.Plugins.AnywhereSliders.Admin.Submenus.ManageSliders");
+}
+
+<nop-antiforgery-token />
+
+<div class="content-header clearfix">
+    <h1 class="pull-left">
+        @T("SevenSpikes.Plugins.AnywhereSliders")
+    </h1>
+    <div class="pull-right">
+        <a href="Create" class="btn bg-blue">
+            <i class="fa fa-plus-square"></i>
+            @T("SevenSpikes.Plugins.AnywhereSliders.Admin.Slider.AddNew")
+        </a>
+    </div>
+</div>
+
+<div class="content">
+    <div class="form-horizontal">
+        <div class="panel-group">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Search
+                </div>
+                <div class="panel-body">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <div class="col-md-4">
+                                <div class="label-wrapper">
+                                    <label class="control-label">System Name</label>
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <input class="k-textbox" type="text" id="slidersSearch" placeholder="Enter search text" style="width: 100%!important;" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-8 col-md-offset-4">
+                                <button class="btn btn-primary btn-search" id="slidersSearchButton">Search</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+				<div class="panel-body">
+					@await Html.PartialAsync("Table", new DataTablesModel
+					{
+						Name = "anywhere-sliders-grid",
+						UrlRead = new DataUrl("List", "AnywhereSlidersAdmin", null),
+						UrlDelete = new DataUrl("Delete", "AnywhereSlidersAdmin", null),
+						Length = defaultGridPageSize,
+						LengthMenu = gridPageSizes,
+						ColumnCollection = new List<ColumnProperty>
+						{
+							new ColumnProperty(nameof(SliderModel.SystemName))
+							{
+								Title = T("SevenSpikes.Plugins.AnywhereSliders.Admin.Slider.SystemName").Text
+							},
+							new ColumnProperty(nameof(SliderModel.IsActive))
+							{
+								Title = T("SevenSpikes.Plugins.AnywhereSliders.Admin.Slider.IsActive").Text,
+								Render = new RenderCustom("renderIsActive")
+							},
+							new ColumnProperty(nameof(SliderModel.Id))
+							{
+                                Width = "200",
+								Render = new RenderCustom("renderEditButton")
+							},
+							new ColumnProperty(nameof(SliderModel.Id))
+							{
+                                Width = "200",
+								Render = new RenderButtonRemove(T("Admin.Common.Delete").Text)
+							}
+						}
+					})
+				</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function renderIsActive(data, type, row, meta) {
+
+        if (row.IsActive) {
+
+            return '<i class="fa fa-check true-icon"></i>';
+        }
+        else {
+
+            return '<i class="fa fa-close false-icon"></i>';
+        }
+    }
+
+    function renderEditButton(data, type, row, meta) {
+
+        return '<a class="btn btn-default" href="Edit/' + data + '" title="@T("Admin.Common.Edit")">' +
+            '<i class="fa fa-pencil"></i>' +
+            '@T("Admin.Common.Edit")' +
+            '</a>';
+    }
+</script>

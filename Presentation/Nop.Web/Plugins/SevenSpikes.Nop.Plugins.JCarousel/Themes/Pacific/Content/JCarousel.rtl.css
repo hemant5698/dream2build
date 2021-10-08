@@ -1,0 +1,53 @@
+
+.nop-jcarousel .slick-prev {
+    right: 0;
+    left: auto;
+    margin: 0 0 0 20px;
+}
+.nop-jcarousel .slick-next {
+    left: 0;
+    right: auto;
+    margin: 0 20px 0 0;
+}
+.nop-jcarousel .slick-prev:before {
+    content: '\e901';
+}
+.nop-jcarousel .slick-next:before {
+    content: '\e902';
+}
+
+@media all and (max-width: 767px) {
+
+    .nop-jcarousel .has-navigation .slick-prev {
+        right: 0;
+        left: auto;
+    }
+    .nop-jcarousel .has-navigation .slick-next {
+        left: 0;
+        right: auto;
+    }
+}
+
+@media all and (min-width: 1261px) {
+
+    .side-2 .nop-jcarousel .has-navigation .slick-prev {
+        right: 0;
+        left: auto;
+    }
+    .side-2 .nop-jcarousel .has-navigation .slick-next {
+        left: 0;
+        right: auto;
+    }
+    .center-2 .nop-jcarousel .carousel-title {
+        padding: 15px 15px 15px 100px;
+        text-align: right;
+    }
+    .center-2 .nop-jcarousel .has-navigation .slick-prev {
+        left: 50px;
+        right: auto;
+    }
+    .center-2 .nop-jcarousel .has-navigation .slick-next {
+        left: 0;
+        right: auto;
+    }
+}

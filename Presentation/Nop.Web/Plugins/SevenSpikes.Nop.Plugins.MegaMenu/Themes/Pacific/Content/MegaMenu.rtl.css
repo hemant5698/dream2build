@@ -1,0 +1,25 @@
+﻿
+@media all and (min-width: 1261px) {
+
+    .mega-menu .dropdown,
+    .mega-menu .dropdown:before {
+        right: 0;
+        left: auto;
+    }
+    .mega-menu .box + .box,
+    .mega-menu .empty-box {
+        border-right: 1px solid #eee;
+        border-left: none;
+    }
+    .mega-menu .box .title {
+        text-align: right;
+    }
+    .mega-menu .full .picture {
+        float: right;
+    }
+    .mega-menu .subcategories {
+        margin-right: 85px;
+        margin-left: 0;
+        text-align: right;
+    }
+}

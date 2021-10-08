@@ -1,0 +1,74 @@
+﻿
+.product-grid .quick-view-button {
+    margin: 0 0 0 5px;
+}
+.featured-product-grid .quick-view-button,
+.product-grid-bestsellers .quick-view-button {
+    margin: 0 0 0 5px;
+}
+.product-list .quick-view-button {
+    margin: 0 5px 0 0;
+}
+
+.quickView .k-window-titlebar .k-window-actions {
+    left: 5px;
+    right: auto;
+}
+
+.quickView .gallery {
+    float: right;
+    padding: 20px 20px 20px 10px;
+}
+.quickView .thumbnails a {
+    float: right;
+    margin: 10px 10px 0 0;
+}
+.quickView .thumbnails a:nth-child(3n+1) {
+    margin-right: 0;
+}
+.quickView .links-panel a:after {
+    margin: 0 12px 0 -8px;
+}
+
+.quickView .overview {
+    float: left;
+    padding: 20px 10px 20px 20px;
+}
+.quickView .ui-accordion-header {
+    text-align: right;
+}
+.quickView .ui-accordion-header span {
+    left: 15px;
+    right: auto;
+}
+.quickView .free-shipping {
+    margin: 0 0 0 15px;
+}
+.quickView .tier-prices .prices-row {
+    float: right;
+}
+.quickView .add-to-cart {
+    float: right;
+}
+.quickView .add-to-wishlist-button,
+.quickView .add-to-compare-list-button {
+    float: right;
+    margin: 0 5px 0 0;
+}
+.quickView .ajax-cart-button-wrapper {
+    float: right;
+    margin: 0 1px 0 0;
+}
+
+.quickView .item-box {
+    margin: 0 2.5% 0 0 !important;
+}
+.quickView .item-box:first-child {
+    margin-right: 0 !important;
+}
+.variants-in-grid .variant-info {
+    text-align: right;
+}
+.variants-in-grid .old-product-price {
+    margin: 0 12px 0 0;
+}
