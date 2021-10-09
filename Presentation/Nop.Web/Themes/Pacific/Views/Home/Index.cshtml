@@ -16,6 +16,7 @@
     var homePageCategoryBoxLayoutClass = "category-boxes-" + homePageCategoryBoxLayout;
 
     var homePageWelcomeText = await Component.InvokeAsync("TopicBlock", new { systemName = "HomePageText" });
+    var homePageServices = await Component.InvokeAsync("TopicBlock", new { systemName = "our-services" });
     var homePageWelcomeTextImageId = settingService.GetSettingByKey("pacificthemesettings.homepagetextbackgroundimageid", storeId, 0);
     var homePageWelcomeTextImageClass = string.Empty;
     if (homePageWelcomeTextImageId != 0)
@@ -33,10 +34,10 @@
             <div class="home-page-slider">
                 @await Component.InvokeAsync("Widget", new { widgetZone = "home_page_main_slider" })
             </div>
-        	@await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HomepageBeforeCategories })
+            @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HomepageBeforeCategories })
             @*@await Component.InvokeAsync("HomepageCategories")*@
         </div>
-        @if(!String.IsNullOrEmpty(homePageWelcomeText.ToHtmlString()))
+        @if (!String.IsNullOrEmpty(homePageWelcomeText.ToHtmlString()))
         {
             <div class="home-page-welcome-message @homePageWelcomeTextImageClass">
                 @homePageWelcomeText
@@ -53,6 +54,10 @@
             <div class="bestsellers-wrapper">
                 @await Component.InvokeAsync("HomepageBestSellers")
             </div>
+        }
+        @if (!String.IsNullOrEmpty(homePageServices.ToHtmlString()))
+        {
+            @homePageServices
         }
         @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HomepageBeforeNews })
         @await Component.InvokeAsync("HomepageNews")
