@@ -153,7 +153,7 @@
 
     var slickSettingsJson = JsonConvert.SerializeObject(slickSettingsDictionary, Formatting.None);
 
-    <div id="@carousel.Settings.CarouselHtmlElementId" class="jCarouselMainWrapper @carousel.Settings.JCarouselEntitySettings.Skin">
+    <div id="@carousel.Settings.CarouselHtmlElementId" class="jCarouselMainWrapper">
         <div class="nop-jcarousel @carousel.DataSourceTypeClass @homePageCategoryClass @homePageProductGridClass">
 
             <div class="title carousel-title">
@@ -190,6 +190,9 @@
                         </div>
                     </div>
                 }
+            </div>
+            <div style="text-align: center;">
+            <a class="button-1" href="@carousel.Settings.JCarouselEntitySettings.Skin"><span>View all</span></a>
             </div>
         </div>
     </div>
