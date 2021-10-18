@@ -119,3 +119,12 @@
 .slick-arrow.slick-hidden {
     display: none;
 }
+.nop-jcarousel .button-1{
+    text-align: center;
+    display: flex;
+    margin: 20px auto 0px;
+    bottom: 0;
+    justify-content: center;
+    align-items: center;
+    background: #b53234;
+}
