@@ -105,7 +105,7 @@
                                 <!--product pictures-->
                                 @await Html.PartialAsync("_ProductDetailsPictures", Model)
                             }
-                            @await Html.PartialAsync("_ShareButton", Model)
+                            @*@await Html.PartialAsync("_ShareButton", Model)*@
                         </div>
                         <div class="overview-wrapper @if (isProductPageLayoutOne) {<text>equalize</text>}">
                             <div class="overview">
@@ -233,7 +233,7 @@
                 <div class="product-page-grids @if (isProductPageLayoutOne) {<text>side-grids</text>}">
                     @await Component.InvokeAsync("RelatedProducts", new { productId = Model.Id })
                     @await Component.InvokeAsync("ProductsAlsoPurchased", new { productId = Model.Id })
-                    @if (isProductPageLayoutOne)
+                    @*@if (isProductPageLayoutOne)
                     {
                     if (!string.IsNullOrEmpty(categoryNavigation.ToHtmlString()))
                     {
@@ -244,7 +244,7 @@
                                 @categoryNavigation
                             </div>
                         }
-                    }
+                    }*@
                 </div>
             </div>
         </form>

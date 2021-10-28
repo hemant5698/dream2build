@@ -243,7 +243,7 @@
                         </div>
                     }
                 </div>
-                <div class="cart-footer">
+                <div class="cart-footer" style="display:none;">
                 	@await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.OrderSummaryCartFooter })
                     @if (Model.IsEditable)
                     {

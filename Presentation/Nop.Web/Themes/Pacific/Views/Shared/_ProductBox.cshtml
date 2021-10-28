@@ -65,7 +65,7 @@
                 {
                     ratingPercent = ((Model.ReviewOverviewModel.RatingSum*100)/Model.ReviewOverviewModel.TotalReviews)/5;
                 }
-                <div class="product-rating-box" title="@string.Format(T("Reviews.TotalReviews").Text, Model.ReviewOverviewModel.TotalReviews)">
+                <div class="product-rating-box" style="display:none;" title="@string.Format(T("Reviews.TotalReviews").Text, Model.ReviewOverviewModel.TotalReviews)">
                     <div class="rating">
                         <div style="width: @(ratingPercent)%">
                         </div>
@@ -83,36 +83,44 @@
         <div class="description">
             @Html.Raw(Model.ShortDescription)
         </div>
-
-        <div class="prices">
-            @{
-                var isPriceDiscounted = "only-price";
-                if (!string.IsNullOrEmpty(Model.ProductPrice.OldPrice))
-                {
-                    isPriceDiscounted = "actual-price";
+        <div class="">
+            <div class="prices">
+                @{
+                    var isPriceDiscounted = "only-price";
+                    if (!string.IsNullOrEmpty(Model.ProductPrice.OldPrice))
+                    {
+                        isPriceDiscounted = "actual-price";
+                    }
                 }
-            }
-            <span class="price @isPriceDiscounted">@Model.ProductPrice.Price</span>
-            @if (!string.IsNullOrEmpty(Model.ProductPrice.OldPrice))
-            {
-                <span class="price old-price">@Model.ProductPrice.OldPrice</span>
-            }
-            @if (Model.ProductPrice.DisplayTaxShippingInfo)
-            {
-                var inclTax = workContext.TaxDisplayType == TaxDisplayType.IncludingTax;
-                //tax info is already included in the price (incl/excl tax). that's why we display only shipping info here
-                //of course, you can modify appropriate locales to include VAT info there
-                <span class="tax-shipping-info">
-                    @T(inclTax ? "Products.Price.TaxShipping.InclTax" : "Products.Price.TaxShipping.ExclTax", Url.RouteUrl("Topic", new { SeName = Html.GetTopicSeName("shippinginfo") }))
-                </span>
-            }
-            @if (!string.IsNullOrEmpty(Model.ProductPrice.BasePricePAngV))
-            {
-                <div class="base-price-pangv">
-                    @Model.ProductPrice.BasePricePAngV
-                </div>
-            }
-        </div>       
+                <span class="price @isPriceDiscounted">@Model.ProductPrice.Price</span>
+
+                @if (!string.IsNullOrEmpty(Model.ProductPrice.OldPrice))
+                {
+                    <span class="price old-price">@Model.ProductPrice.OldPrice</span>
+                }
+                @if (Model.ProductPrice.DisplayTaxShippingInfo)
+                {
+                    var inclTax = workContext.TaxDisplayType == TaxDisplayType.IncludingTax;
+                    //tax info is already included in the price (incl/excl tax). that's why we display only shipping info here
+                    //of course, you can modify appropriate locales to include VAT info there
+                    <span class="tax-shipping-info">
+                        @T(inclTax ? "Products.Price.TaxShipping.InclTax" : "Products.Price.TaxShipping.ExclTax", Url.RouteUrl("Topic", new { SeName = Html.GetTopicSeName("shippinginfo") }))
+                    </span>
+                }
+                @if (!string.IsNullOrEmpty(Model.ProductPrice.BasePricePAngV))
+                {
+                    <div class="base-price-pangv">
+                        @Model.ProductPrice.BasePricePAngV
+                    </div>
+                }
+            </div>
+            <div class="">
+                @if (!Model.ProductPrice.DisableWishlistButton)
+                {
+                    <input type="button" value="@T("ShoppingCart.AddToWishlist")" title="@T("ShoppingCart.AddToWishlist")" class="button-2 add-to-wishlist-button" onclick="AjaxCart.addproducttocart_catalog('@addtowishlistlink');return false;" />
+                }
+            </div>
+        </div>
         <div class="add-info">
 			@await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.ProductBoxAddinfoBefore, additionalData = Model })
             @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.ProductBoxAddinfoMiddle, additionalData = Model })
@@ -131,10 +139,7 @@
                     }
                     <input type="button" value="@(addToCartText)" class="button-2 product-box-add-to-cart-button" onclick="AjaxCart.addproducttocart_catalog('@addtocartlink');return false;" />
                 }
-                @if (!Model.ProductPrice.DisableWishlistButton)
-                {
-                    <input type="button" value="@T("ShoppingCart.AddToWishlist")" title="@T("ShoppingCart.AddToWishlist")" class="button-2 add-to-wishlist-button" onclick="AjaxCart.addproducttocart_catalog('@addtowishlistlink');return false;" />
-                }
+              
                 @if (!Model.ProductPrice.DisableAddToCompareListButton)
                 {
                     <input type="button" value="@T("ShoppingCart.AddToCompareList")" title="@T("ShoppingCart.AddToCompareList")" class="button-2 add-to-compare-list-button" onclick="AjaxCart.addproducttocomparelist('@addtocomparelink');return false;" />

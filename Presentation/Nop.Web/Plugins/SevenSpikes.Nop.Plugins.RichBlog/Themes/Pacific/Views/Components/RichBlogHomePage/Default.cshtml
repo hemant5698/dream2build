@@ -37,29 +37,23 @@
                         <div class="post-heading">
                             <a class="post-title" href="@Url.RouteUrl("BlogPost", new { SeName = post.SeName })">@post.Title</a>
                         </div>
-                        <div class="post-date mobile">
-                            <span class="day">@post.CreatedOn.Day.ToString("00")</span>
-                            <span class="month">@post.CreatedOn.ToString("MMMM")</span>
-                        </div>
+                   
                         <div class="post-description">
                             @Html.Raw(!string.IsNullOrEmpty(post.BodyOverview) ? post.BodyOverview : post.Body)
                         </div>
                         <div class="post-links">
-                            <div class="post-date desktop">
-                                <span class="day">@post.CreatedOn.Day.ToString("00")</span>
-                                <span class="month">@post.CreatedOn.ToString("MMMM")</span>
-                            </div>
-                            @if (post.AllowComments)
+                           
+                            @*@if (post.AllowComments)
                             {
                                 <span class="read-comments">@string.Format(T("SevenSpikes.RichBlog.Public.Blog.Post.Comments").Text, post.NumberOfComments)</span>
-                            }
+                            }*@
                             <a class="read-more" href="@Url.RouteUrl("BlogPost", new { SeName = post.SeName })"><span>@T("SevenSpikes.RichBlog.Public.ReadMore")</span></a>
                         </div>
                     </div>
                 </div>
             }
-            <div class="view-all">
-                <a href="@Url.RouteUrl("Blog")"><span>@T("SevenSpikes.RichBlog.Public.ViewAllBlogPosts")</span></a>
+            <div >
+                <a class="button-1" href="@Url.RouteUrl("Blog")"><span>@T("SevenSpikes.RichBlog.Public.ViewAllBlogPosts")</span></a>
             </div>
         }
         else if (Model.Count > 3)
@@ -88,14 +82,11 @@
                             @Html.Raw(!string.IsNullOrEmpty(firstPost.BodyOverview) ? firstPost.BodyOverview : firstPost.Body)
                         </div>
                         <div class="post-links">
-                            <div class="post-date desktop">
-                                <span class="day">@firstPost.CreatedOn.Day.ToString("00")</span>
-                                <span class="month">@firstPost.CreatedOn.ToString("MMMM")</span>
-                            </div>
-                            @if (firstPost.AllowComments)
+                          
+                            @*@if (firstPost.AllowComments)
                             {
                                 <span class="read-comments">@string.Format(T("SevenSpikes.RichBlog.Public.Blog.Post.Comments").Text, firstPost.NumberOfComments)</span>
-                            }
+                            }*@
                             <a class="read-more" href="@Url.RouteUrl("BlogPost", new { SeName = firstPost.SeName })"><span>@T("SevenSpikes.RichBlog.Public.ReadMore")</span></a>
                         </div>
                     </div>
@@ -120,22 +111,16 @@
                             <div class="post-heading">
                                 <a class="post-title" href="@Url.RouteUrl("BlogPost", new { SeName = post.SeName })">@post.Title</a>
                             </div>
-                            <div class="post-date mobile">
-                                <span class="day">@post.CreatedOn.Day.ToString("00")</span>
-                                <span class="month">@post.CreatedOn.ToString("MMMM")</span>
-                            </div>
+                            
                             <div class="post-description">
                                 @Html.Raw(!string.IsNullOrEmpty(post.BodyOverview) ? post.BodyOverview : post.Body)
                             </div>
                             <div class="post-links">
-                                <div class="post-date desktop">
-                                    <span class="day">@post.CreatedOn.Day.ToString("00")</span>
-                                    <span class="month">@post.CreatedOn.ToString("MMMM")</span>
-                                </div>
-                                @if (post.AllowComments)
+                                
+                                @*@if (post.AllowComments)
                                 {
                                     <span class="read-comments">@string.Format(T("SevenSpikes.RichBlog.Public.Blog.Post.Comments").Text, post.NumberOfComments)</span>
-                                }
+                                }*@
                                 <a class="read-more" href="@Url.RouteUrl("BlogPost", new { SeName = post.SeName })"><span>@T("SevenSpikes.RichBlog.Public.ReadMore")</span></a>
                             </div>
                         </div>
