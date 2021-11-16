@@ -145,12 +145,12 @@
 
             @if (!removeDesignedBy)
             {
-                <div class="footer-designed-by">
+                <div class="footer-designed-by" style="display:none;">
                     Designed by <a href="https://www.nop-templates.com/" target="_blank">Nop-Templates.com</a>
                 </div>
             }
         </div>
-        <div class="footer-block">
+        <div class="footer-block footer-center">
             @await Component.InvokeAsync("NewsletterBox")
             @await Component.InvokeAsync("SocialButtons")
         </div>

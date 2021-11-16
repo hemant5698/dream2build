@@ -1,21 +1,13 @@
 ﻿
-@media all and (max-width: 1500px) {
 
-    .home-page-welcome-message {
-        background: none !important;
-    }
-}
 
 @media all and (min-width: 1501px) {
     .explore-range .topic-block, .why-choose .topic-block, .home-page-welcome-message, .rich-blog-homepage {
         margin: 0 0 80px !important;
-    }
-
-        .rich-blog-homepage .button-1 {
-            position: relative;
-            top: 65px;
-        }
-
+    }    
+.center-1{
+	margin:0;
+}
     .home-page-categories-wrapper {
         margin: 0 0 70px;
     }

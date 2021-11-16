@@ -1,4 +1,14 @@
-﻿<div class="header">
+﻿@using Nop.Services.Orders;
+@using Nop.Core;
+@using Nop.Core.Domain.Orders;
+@inject IShoppingCartService  _shoppingCartService
+@inject IWorkContext _workContext 
+@{ 
+    var customer = _workContext.CurrentCustomer;
+    var wishlistCount = _shoppingCartService.GetShoppingCart(customer, ShoppingCartType.Wishlist, 1)
+                    .Sum(item => item.Quantity);
+}
+<div class="header">
     @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HeaderBefore })
     <div class="responsive-strip">
         <div class="responsive-logo-wrapper">
@@ -19,7 +29,7 @@
         </div>
         @await Component.InvokeAsync("AdminHeaderLinks")
     </div>
-    <div class="header-lower">
+    <div class="header-lower" id="fixed-header">
         <div class="header-logo">
             @await Component.InvokeAsync("Logo")
         </div>
@@ -52,6 +62,18 @@
                 }
             </div>
         </div>
+		  <div class="hedar-links-item help font-13 d-none">
+            <a href="tel:+918124512458"><span class="phone"></span><span> +91 81245 12458</span></a>
+
+        </div>
+        <div class="hedar-links-item wishlist">
+            <a href="@Url.RouteUrl("Wishlist")" class="ico-wishlist">
+                @if (wishlistCount > 0)
+                {
+                    <span class="wishlist-qty">@T("SevenSpikes.Themes.Pacific.Wishlist.HeaderQuantity", wishlistCount)</span>
+                }
+            </a>
+        </div>
         <div class="search-box store-search-box">
             @await Component.InvokeAsync("SearchBox")
             <div class="search-box-opener">@T("search")</div>
@@ -66,3 +88,15 @@
     </div>
     @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HeaderAfter })
 </div>
+
+<script asp-location="Footer">
+    $(window).scroll(function () {
+        var scroll = $(window).scrollTop();
+
+        if (scroll >= 100) {
+            $("#fixed-header").addClass("sticky");
+        } else {
+            $("#fixed-header").removeClass("sticky");
+        }
+    });
+</script>

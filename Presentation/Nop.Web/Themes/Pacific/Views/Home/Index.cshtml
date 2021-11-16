@@ -17,6 +17,7 @@
 
     var homePageWelcomeText = await Component.InvokeAsync("TopicBlock", new { systemName = "HomePageText" });
     var homePageServices = await Component.InvokeAsync("TopicBlock", new { systemName = "our-services" });
+    var homePageWhychoose = await Component.InvokeAsync("TopicBlock", new { systemName = "Why-dream2build" });
     var homePageWelcomeTextImageId = settingService.GetSettingByKey("pacificthemesettings.homepagetextbackgroundimageid", storeId, 0);
     var homePageWelcomeTextImageClass = string.Empty;
     if (homePageWelcomeTextImageId != 0)
@@ -35,34 +36,51 @@
                 @await Component.InvokeAsync("Widget", new { widgetZone = "home_page_main_slider" })
             </div>
             @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HomepageBeforeCategories })
-            @*@await Component.InvokeAsync("HomepageCategories")*@
+            @await Component.InvokeAsync("HomepageCategories")
         </div>
-        @if (!String.IsNullOrEmpty(homePageWelcomeText.ToHtmlString()))
-        {
-            <div class="home-page-welcome-message @homePageWelcomeTextImageClass">
-                @homePageWelcomeText
-            </div>
-        }
-        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HomepageBeforeProducts })
-        @await Component.InvokeAsync("HomepageProducts")
-        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HomepageBeforeBestSellers })
-        @{
-            var bestSellers = await Component.InvokeAsync("HomepageBestSellers");
-        }
-        @if (!String.IsNullOrEmpty(bestSellers.ToHtmlString()))
-        {
-            <div class="bestsellers-wrapper">
-                @await Component.InvokeAsync("HomepageBestSellers")
-            </div>
-        }
-        @if (!String.IsNullOrEmpty(homePageServices.ToHtmlString()))
-        {
-            @homePageServices
-        }
-        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HomepageBeforeNews })
-        @await Component.InvokeAsync("HomepageNews")
-        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HomepageBeforePoll })
-        @await Component.InvokeAsync("HomepagePolls")
-        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HomepageBottom })
+        <div class="container-fluid">
+			@if (!String.IsNullOrEmpty(homePageWhychoose.ToHtmlString()))
+            {
+                <div class="explore-range">
+                    @homePageWhychoose
+                </div>
+            }
+            @if (!String.IsNullOrEmpty(homePageWelcomeText.ToHtmlString()))
+            {
+                <div class="home-page-welcome-message @homePageWelcomeTextImageClass">
+                    @homePageWelcomeText
+                </div>
+            }
+            @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HomepageBeforeProducts })
+            @await Component.InvokeAsync("HomepageProducts")
+            @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HomepageBeforeBestSellers })
+            @{
+                var bestSellers = await Component.InvokeAsync("HomepageBestSellers");
+            }
+            @if (!String.IsNullOrEmpty(bestSellers.ToHtmlString()))
+            {
+                <div class="bestsellers-wrapper">
+                    @await Component.InvokeAsync("HomepageBestSellers")
+                </div>
+            }
+			
+            @if (!String.IsNullOrEmpty(homePageServices.ToHtmlString()))
+            {
+                <div class="why-choose">
+                    @homePageServices
+                </div>
+            }            
+            @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HomepageBeforeNews })
+            @await Component.InvokeAsync("HomepageNews")
+            @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HomepageBeforePoll })
+            @await Component.InvokeAsync("HomepagePolls")
+            @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HomepageBottom })
+
+        </div>
     </div>
 </div>
+
+
+
+
+

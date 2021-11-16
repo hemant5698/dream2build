@@ -1,6 +1,8 @@
 ﻿
 @media all and (min-width: 768px) {
-
+    .nop-jcarousel .button-1 {
+        margin: 60px auto 0 !important;
+    }
     /* GLOBAL STYLES */
 
 
@@ -28,78 +30,12 @@
     /* NOTIFICATIONS & POPUPS */
     /* HEADER */
 
-    .store-search-box {
-        position: absolute;
-        top: 4px;
-        right: 50px;
-        z-index: 3;
-        width: 42px;
-        height: 42px;
-        border: none;
-        border-left: 0;
-        background-color: transparent;
-        padding: 0 42px 0 0;
-    }
 
-    .search-box-opener {
-        display: block;
-        position: absolute;
-        top: 0;
-        right: 0;
-        z-index: 1076;
-        width: 42px;
-        height: 42px;
-        background-color: #eee;
-        font-size: 0;
-        cursor: pointer;
-    }
 
-        .search-box-opener:before,
-        .search-box-opener:after {
-            content: "";
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            width: 42px;
-            height: 42px;
-            background-color: #eee;
-            text-align: center;
-            font-family: 'pacific';
-            font-size: 18px;
-            line-height: 42px;
-            transition: 0.5s ease;
-        }
 
-        .search-box-opener:before {
-            content: "\e92b";
-        }
 
-        .search-box-opener:after {
-            content: "\e90a";
-            opacity: 0;
-            font-size: 13px;
-        }
 
-        .search-box-opener.open:after {
-            opacity: 1;
-        }
 
-    .store-search-box form {
-        width: 340px;
-        height: 42px;
-        border: 1px solid #eee;
-        -webkit-transform: translate(0);
-        -ms-transform: translate(0);
-        transform: translate(0);
-        transition: 0.5s ease;
-    }
-
-        .store-search-box form.open {
-            -webkit-transform: translate(-100%);
-            -ms-transform: translate(-100%);
-            transform: translate(-100%);
-        }
 
     .ui-autocomplete {
         width: 339px !important;
@@ -132,7 +68,7 @@
 
     .footer-lower {
         overflow: hidden;
-        padding: 0 6vw 15px;
+        padding: 4px 6vw 15px;
     }
 
     .footer-lower-left {
@@ -142,7 +78,6 @@
 
     .footer-lower-right {
         float: right;
-        text-align: right;
     }
 
     .theme-selector {
@@ -573,14 +508,14 @@
 
     .overview-buttons {
         float: right;
-        width: 42%;
+        width: 30%;
         margin: 0;
         text-align: right;
     }
 
     .overview-buttons-wrapper .add-to-cart {
         float: left;
-        width: 58%;
+        width: 70%;
         margin: 0;
     }
 
@@ -1078,9 +1013,6 @@
 
 @media all and (min-width: 1000px) {
 
-    .footer {
-        padding: 20px 0 0;
-    }
 
     .footer-upper {
         position: relative;
@@ -1201,17 +1133,10 @@
 
 @media all and (min-width: 768px) and (max-width: 1260px) {
 
-    .header {
-        padding-top: 50px;
-    }
 
     .responsive-logo-wrapper {
         padding: 0 95px 0 50px;
         text-align: left;
-    }
-
-    .store-search-box.nav-down {
-        margin: 0;
     }
 
     .home-page-slider {
@@ -1285,7 +1210,6 @@
 }
 
 @media all and (min-width: 1000px) and (max-width: 1260px) {
-
     .footer-block {
         padding: 0;
     }
@@ -1305,7 +1229,7 @@
     }
 
     .footer-block {
-        width: 20% !important;
+        width: 25% !important;
         padding: 0 !important;
     }
 

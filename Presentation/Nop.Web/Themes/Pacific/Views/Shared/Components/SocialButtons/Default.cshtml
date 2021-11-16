@@ -32,7 +32,7 @@
     }
     @if (!String.IsNullOrEmpty(Model.YoutubeLink))
     {
-        <li><a target="_blank" class="youtube" href="@Model.YoutubeLink"></a></li>
+        <li><a target="_blank" class="instagram" href="@Model.YoutubeLink"></a></li>
     }
     @if (!String.IsNullOrEmpty(instagramUrl))
     {
@@ -40,6 +40,7 @@
     }
     @if (Model.NewsEnabled)
     {
-        <li><a target="_blank" class="rss" href="@Url.RouteUrl("NewsRSS", new {languageId = Model.WorkingLanguageId})"></a></li>
+        <li><a target="_blank" class="rss" href="@Url.RouteUrl("NewsRSS", new {languageId = Model.WorkingLanguageId})">
+		</a></li>
     }
 </ul>

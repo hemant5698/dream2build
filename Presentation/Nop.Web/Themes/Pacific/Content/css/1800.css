@@ -24,7 +24,11 @@
     /* GLOBAL FORMS */
     /* NOTIFICATIONS & POPUPS */
     /* HEADER */
-
+.wishlist {
+    position: absolute;
+    top: 0;
+    right: 176px;
+}
     .header-lower {
         padding: 0 325px 0 315px;
     }
@@ -36,7 +40,7 @@
     .store-search-box {
         width: 440px;
         padding: 0;
-        right: 180px;
+        right: 285px;
     }
 
     .search-box-opener {

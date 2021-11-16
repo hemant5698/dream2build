@@ -20,7 +20,7 @@
     //page class
     Html.AppendPageCssClassParts("html-product-details-page");
 
-    //canonicalURL
+    //canonical URL
     if (seoSettings.CanonicalUrlsEnabled)
     {
         var productUrl = Url.RouteUrl("Product", new { SeName = Model.SeName }, webHelper.CurrentRequestProtocol).ToLowerInvariant();

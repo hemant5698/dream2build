@@ -83,6 +83,9 @@ var AjaxCart = {
         }
         if (response.updatetopwishlistsectionhtml) {
             $(AjaxCart.topwishlistselector).html(response.updatetopwishlistsectionhtml);
+            var wishActive = ".wish_" + response.productId;
+            $(wishActive).addClass("active");
+            displayBarNotification(response.message, 'success', 3500);
         }
         if (response.updateflyoutcartsectionhtml) {
             $(AjaxCart.flyoutcartselector).replaceWith(response.updateflyoutcartsectionhtml);

@@ -171,10 +171,10 @@
                         },
                         attachDetach: {
                             blocks: [
-                                {
+                               /*  {
                                     content: '.store-search-box',
                                     elementToAttach: '.responsive-strip'
-                                },
+                                }, */
                                 {
                                     content: '.product-selectors',
                                     elementToAttach: '.master-wrapper-page'
@@ -392,7 +392,7 @@
 
         var windowScrollTop = $(window).scrollTop();
 
-        if (windowScrollTop > 50 && windowScrollTop > lastScrollTop) {
+        if (windowScrollTop > 10 && windowScrollTop > lastScrollTop) {
             $('.store-search-box').addClass('nav-down');
             $('.scroll-back-button').removeClass('nav-up');
             $('.admin-header-links').removeClass('nav-up');
