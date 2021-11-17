@@ -207,7 +207,7 @@ align-items: center;
     .header-links span,
     .header-links a {
         display: inline-block;
-        font-size: 13px; /*reset zeroing*/
+        font-size: 13px; 
     }
 
     .hedar-links-item > a {

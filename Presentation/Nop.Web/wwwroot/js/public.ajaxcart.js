@@ -85,7 +85,7 @@ var AjaxCart = {
             $(AjaxCart.topwishlistselector).html(response.updatetopwishlistsectionhtml);
             var wishActive = ".wish_" + response.productId;
             $(wishActive).addClass("active");
-            displayBarNotification(response.message, 'success', 3500);
+            displayBarNotification(response.message, 'success', 2500);
         }
         if (response.updateflyoutcartsectionhtml) {
             $(AjaxCart.flyoutcartselector).replaceWith(response.updateflyoutcartsectionhtml);
@@ -127,5 +127,27 @@ var AjaxCart = {
 
     ajaxFailure: function () {
         alert(this.localized_data.AjaxCartFailure);
+    },
+
+    addOrRemoveProductFromWishlist: function (url, wishListId) {
+        var className = ".wish_" + wishListId;
+        if ($(className).hasClass("active")) {
+            var id = $(className).data("id");
+            $.ajax({
+                cache: false,
+                url: "ShoppingCart/RemoveProductFromWishlist",
+                data: { productId: id },
+                type: "POST",
+                success: function (response) {
+                    var wishActive = ".wish_" + response.productId;
+                    $(wishActive).removeClass("active");
+                    $(AjaxCart.topwishlistselector).html(response.quantity);
+                    displayBarNotification(response.message, 'success', 2500);
+                }
+            });
+        }
+        else {
+            this.addproducttocart_catalog(url); return false;
+        }
     }
 };

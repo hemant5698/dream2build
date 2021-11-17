@@ -66,12 +66,9 @@
             <a href="tel:+918124512458"><span class="phone"></span><span> +91 81245 12458</span></a>
 
         </div>
-        <div class="hedar-links-item wishlist">
+        <div class="hedar-links-item wishlist header-links">
             <a href="@Url.RouteUrl("Wishlist")" class="ico-wishlist">
-                @if (wishlistCount > 0)
-                {
-                    <span class="wishlist-qty">@T("SevenSpikes.Themes.Pacific.Wishlist.HeaderQuantity", wishlistCount)</span>
-                }
+                <span class="wishlist-qty">@T("SevenSpikes.Themes.Pacific.Wishlist.HeaderQuantity", wishlistCount)</span>
             </a>
         </div>
         <div class="search-box store-search-box">
