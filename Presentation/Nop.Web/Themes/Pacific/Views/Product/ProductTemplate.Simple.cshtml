@@ -177,11 +177,11 @@
                                     <!--wishlist, compare, email a friend-->
                                     <div class="overview-buttons">
                             			@await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.ProductDetailsInsideOverviewButtonsBefore, additionalData = Model })
-                                        @{
+                                        @*@{
                                             var dataDictAddToWishlist = new ViewDataDictionary(ViewData);
                                             dataDictAddToWishlist.TemplateInfo.HtmlFieldPrefix = $"addtocart_{Model.Id}";
                                             @await Html.PartialAsync("_AddToWishlist", Model.AddToCart, dataDictAddToWishlist)
-                                        }
+                                        }*@
                                         @await Html.PartialAsync("_CompareProductsButton", Model)
                                         @await Html.PartialAsync("_ProductEmailAFriendButton", Model)
                                         <!--sample download-->
