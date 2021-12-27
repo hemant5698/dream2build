@@ -16,6 +16,9 @@
     }
 }
 <div class="order-summary-content @onePageCheckoutClass">
+<h4 class="awesome">Note:
+    Service will be available in Bhubneshwar and Cuttack city only.
+</h4>
     @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.OrderSummaryContentBefore })
     @await Html.PartialAsync("_OrderReviewData", Model.OrderReviewData)
     @if (Model.Items.Count > 0)

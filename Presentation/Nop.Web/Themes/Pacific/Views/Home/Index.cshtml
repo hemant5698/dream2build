@@ -28,6 +28,7 @@
     var homePageNumberOfFeaturedProductsPerRow = settingService.GetSettingByKey("pacificthemesettings.homepagenumberoffeaturedproducts", "six", storeId, true);
     var homePageNumberOfFeaturedProductsPerRowClass = "items-" + homePageNumberOfFeaturedProductsPerRow;
 }
+
 <div class="page home-page @homePageNumberOfFeaturedProductsPerRowClass">
     <div class="page-body">
         @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HomepageTop })

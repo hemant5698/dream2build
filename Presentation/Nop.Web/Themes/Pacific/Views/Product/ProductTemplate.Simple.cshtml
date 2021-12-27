@@ -143,6 +143,7 @@
                                 {
                                     <div class="overview-info-wrapper">
                                         @productManufacturers
+										<div class="manufacturers"><span class="label">For bulk orders (500 or more qty.) please contact us for pricing. &gt;</span> <span class="value"> <a href="/contactus">Contact Us</a> </span></div>
                                         @productSkuManGiinVendor
                                     </div>
                                 }
@@ -232,7 +233,7 @@
                 </div>
                 <div class="product-page-grids @if (isProductPageLayoutOne) {<text>side-grids</text>}">
                     @await Component.InvokeAsync("RelatedProducts", new { productId = Model.Id })
-                    @await Component.InvokeAsync("ProductsAlsoPurchased", new { productId = Model.Id })
+                    @*@await Component.InvokeAsync("ProductsAlsoPurchased", new { productId = Model.Id })*@
                     @*@if (isProductPageLayoutOne)
                     {
                     if (!string.IsNullOrEmpty(categoryNavigation.ToHtmlString()))

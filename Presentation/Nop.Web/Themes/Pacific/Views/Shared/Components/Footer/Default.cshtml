@@ -136,7 +136,7 @@
         <div class="footer-lower-left">
             @if (!removeCopyright)
             {
-                <div class="footer-powered-by">
+                <div class="footer-powered-by d-block">
                     Powered by <a href="https://www.nopcommerce.com/">nopCommerce</a>
                     @*Would you like to remove the "Powered by nopCommerce" link in the bottom of the footer?
                     Find more info at https://www.nopcommerce.com/nopcommerce-copyright-removal-key*@
@@ -146,7 +146,7 @@
             @if (!removeDesignedBy)
             {
                 <div class="footer-designed-by" style="display:none;">
-                    Designed by <a href="https://www.nop-templates.com/" target="_blank">Nop-Templates.com</a>
+                    Designed by <a  rel="noreferrer" href="https://www.nop-templates.com/" target="_blank">Nop-Templates.com</a>
                 </div>
             }
         </div>
@@ -154,7 +154,13 @@
             @await Component.InvokeAsync("NewsletterBox")
             @await Component.InvokeAsync("SocialButtons")
         </div>
+		
         <div class="footer-lower-right">
+		<div class="footer-powered-by d-none">
+                    Powered by <a href="https://www.nopcommerce.com/">nopCommerce</a>
+                    @*Would you like to remove the "Powered by nopCommerce" link in the bottom of the footer?
+                    Find more info at https://www.nopcommerce.com/nopcommerce-copyright-removal-key*@
+                </div>
             <div class="footer-disclaimer">
                 @T("Content.CopyrightNotice", DateTime.Now.Year, Model.StoreName)
             </div>

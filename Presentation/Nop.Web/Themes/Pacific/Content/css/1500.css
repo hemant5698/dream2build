@@ -2,11 +2,17 @@
 
 
 @media all and (min-width: 1501px) {
-    .explore-range .topic-block, .why-choose .topic-block, .home-page-welcome-message, .rich-blog-homepage {
+    .explore-range .topic-block, .why-choose .topic-block, .home-page-welcome-message, .rich-blog-homepage, .manufacturer-grid {
         margin: 0 0 80px !important;
     }    
-.center-1{
-	margin:0;
+	div:last-child > .nop-jcarousel {
+    margin-bottom: 80px !important;
+}
+.header-lower {
+    padding: 0 290px 0 325px;
+}
+.center-1 {
+    margin: 0 0 80px;
 }
     .home-page-categories-wrapper {
         margin: 0 0 70px;

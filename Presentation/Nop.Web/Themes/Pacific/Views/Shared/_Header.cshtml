@@ -66,15 +66,16 @@
             <a href="tel:+918124512458"><span class="phone"></span><span> +91 81245 12458</span></a>
 
         </div>
+		  <div class="search-box store-search-box">
+            @await Component.InvokeAsync("SearchBox")
+            <div class="search-box-opener">@T("search")</div>
+        </div>
         <div class="hedar-links-item wishlist header-links">
             <a href="@Url.RouteUrl("Wishlist")" class="ico-wishlist">
                 <span class="wishlist-qty">@T("SevenSpikes.Themes.Pacific.Wishlist.HeaderQuantity", wishlistCount)</span>
             </a>
         </div>
-        <div class="search-box store-search-box">
-            @await Component.InvokeAsync("SearchBox")
-            <div class="search-box-opener">@T("search")</div>
-        </div>
+      
         <div class="header-flyout-cart">
             <div class="mobile-flyout-cart-toggle" title="@T("SevenSpikes.Themes.Common.CloseMenu")">
                 <span class="first"></span>

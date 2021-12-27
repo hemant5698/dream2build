@@ -10,7 +10,7 @@
     .master-column-wrapper {
         max-width: 2000px;
         margin: auto;
-        padding: 0 70px;
+        padding-bottom: 50px;
     }
 
     .center-2 {
@@ -30,7 +30,7 @@
     right: 176px;
 }
     .header-lower {
-        padding: 0 325px 0 315px;
+        padding: 0 325px 0 345px;
     }
 
     .header-flyout-cart {
@@ -272,12 +272,10 @@
 
     /* PRODUCT PAGE */
 
-    .product-details-page-body .master-wrapper-content {
-        padding: 0 70px;
-    }
+
 
     .product-page-layout-one .product-essential {
-        width: 81%;
+        width: 100%;
     }
 
     .product-page-grids.side-grids {
@@ -405,7 +403,7 @@
     /* WISHLIST & COMPARE LIST */
 
     .wishlist-info {
-        right: 70px;
+        right: 108px;
     }
 
     .wishlist-page .table-wrapper {
@@ -414,7 +412,6 @@
 
     .wishlist-info {
         width: 350px;
-        padding: 40px 30px;
     }
 
     /* TOPICS */

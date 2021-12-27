@@ -87,7 +87,7 @@
         }
         @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.CategoryDetailsBeforeSubcategories, additionalData = Model })
         @*subcategories*@
-        @if (Model.SubCategories.Count > 0)
+        @if (Model.SubCategories.Any())
         {
             <div class="category-grid sub-category-grid">
                 <div class="item-grid">

@@ -52,7 +52,7 @@
         <meta name="keywords" content="@(Html.NopMetaKeywords())" />
         <meta name="generator" content="nopCommerce" />
     	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0" />
-        <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,700&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese" rel="stylesheet">
+        
         @Html.NopHeadCustom()
         @*This is used so that themes can inject content into the header*@
         @await Html.PartialAsync("Head")
@@ -71,12 +71,14 @@
         }
         @Html.NopInlineScripts(ResourceLocation.Head)
         <!--Powered by nopCommerce - https://www.nopCommerce.com-->
+		<script src="https://apps.elfsight.com/p/platform.js" defer></script>
+<div class="elfsight-app-dfbb9a9a-300d-47e7-a852-536c835e32f0"></div>
     </head>
 	<body class="@currentPageClass">
         @RenderBody()
         @Html.NopCssFiles(ResourceLocation.Footer)
         @Html.NopScripts(ResourceLocation.Footer)
 		@Html.NopInlineScripts(ResourceLocation.Footer)
-    	<a class="scroll-back-button" id="goToTop"></a>
+    	<a class="scroll-back-button font-0" id="goToTop" href="#">Top</a>
     </body>
 </html>

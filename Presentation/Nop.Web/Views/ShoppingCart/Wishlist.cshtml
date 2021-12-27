@@ -96,12 +96,12 @@
                                     <th class="unit-price">
                                         @T("ShoppingCart.UnitPrice")
                                     </th>
-                                    @*<th class="quantity">
+                                    <th class="quantity">
                                         @T("ShoppingCart.Quantity")
                                     </th>
                                     <th class="subtotal">
                                         @T("ShoppingCart.ItemTotal")
-                                    </th>*@
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -179,7 +179,7 @@
                                             <label class="td-title">@T("ShoppingCart.UnitPrice"):</label>
                                             <span class="product-unit-price">@item.UnitPrice</span>
                                         </td>
-                                        @*<td class="quantity">
+                                        <td class="quantity">
                                             <label class="td-title">@T("ShoppingCart.Quantity"):</label>
                                             @if (Model.IsEditable)
                                             {
@@ -201,8 +201,8 @@
                                             {
                                                 <span class="product-quantity">@item.Quantity</span>
                                             }
-                                        </td>*@
-                                        @*<td class="subtotal">
+                                        </td>
+                                        <td class="subtotal">
                                             <label class="td-title">@T("ShoppingCart.ItemTotal"):</label>
                                             <span class="product-subtotal">@item.SubTotal</span>
                                             @if (!string.IsNullOrEmpty(item.Discount))
@@ -217,7 +217,7 @@
                                                     </div>
                                                 }
                                             }
-                                        </td>*@
+                                        </td>
                                     </tr>
                                 }
                             </tbody>
@@ -237,14 +237,14 @@
                         {
                             <input type="submit" name="updatecart" value="@T("Wishlist.UpdateCart")" class="button-2 update-wishlist-button" />
                         }
-                        @*@if (Model.DisplayAddToCart)
+                        @if (Model.DisplayAddToCart)
                         {
                             <input type="submit" name="addtocartbutton" value="@T("ShoppingCart.AddToCart")" class="button-2 wishlist-add-to-cart-button" />
                         }
                         @if (Model.IsEditable && Model.EmailWishlistEnabled)
                         {
                             <input type="button" value="@T("Wishlist.EmailAFriend")" class="button-2 email-a-friend-wishlist-button" onclick="setLocation('@Url.RouteUrl("EmailWishlist")')" />
-                        }*@
+                        }
                     </div>
                 </form>
             </div>

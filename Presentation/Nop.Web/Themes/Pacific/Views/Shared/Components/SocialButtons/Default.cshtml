@@ -16,31 +16,31 @@
 <ul class="social-sharing">
     @if (!String.IsNullOrEmpty(Model.FacebookLink))
     {
-        <li><a target="_blank" class="facebook" href="@Model.FacebookLink"></a></li>
+        <li><a target="_blank" rel="noreferrer" class="facebook font-0" href="@Model.FacebookLink"><img src="../Themes/Pacific/Content/img/facebook.png" height="30">Facebook</a></li>
     }
     @if (!String.IsNullOrEmpty(Model.TwitterLink))
     {
-        <li><a target="_blank" class="twitter" href="@Model.TwitterLink"></a></li>
+        <li><a target="_blank" rel="noreferrer" class="twitter font-0" href="@Model.TwitterLink"><img src="../Themes/Pacific/Content/img/twitter.png" height="30">twitter</a></li>
     }
     @if (!String.IsNullOrEmpty(pinterestUrl))
     {
-        <li><a target="_blank" class="pinterest" href="@pinterestUrl"></a></li>
+        <li><a target="_blank"  rel="noreferrer"  class="pinterest font-0" href="@pinterestUrl">pinterest</a></li>
     }
     @if (!String.IsNullOrEmpty(vimeoUrl))
     {
-        <li><a target="_blank" class="vimeo" href="@vimeoUrl"></a></li>
+        <li><a target="_blank" rel="noreferrer"  class="vimeo font-0" href="@vimeoUrl">vimeo</a></li>
     }
     @if (!String.IsNullOrEmpty(Model.YoutubeLink))
     {
-        <li><a target="_blank" class="instagram" href="@Model.YoutubeLink"></a></li>
+        <li><a target="_blank" rel="noreferrer" class="instagram font-0" href="@Model.YoutubeLink"><img src="../Themes/Pacific/Content/img/instagram.png" height="30">instagram</a></li>
     }
     @if (!String.IsNullOrEmpty(instagramUrl))
     {
-        <li><a target="_blank" class="instagram" href="@instagramUrl"></a></li>
+        <li><a target="_blank" rel="noreferrer" class="instagram font-0" href="@instagramUrl">instagram</a></li>
     }
     @if (Model.NewsEnabled)
     {
-        <li><a target="_blank" class="rss" href="@Url.RouteUrl("NewsRSS", new {languageId = Model.WorkingLanguageId})">
+        <li><a target="_blank" class="rss font-0"  rel="noreferrer" href="https://www.linkedin.com/feed/"><img src="../Themes/Pacific/Content/img/linkdin.png" height="30">linkdin
 		</a></li>
     }
 </ul>

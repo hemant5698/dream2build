@@ -58,7 +58,7 @@
         <a href="@Url.RouteUrl("Product", new { SeName = Model.SeName })" title="@Model.DefaultPictureModel.Title">
             @if (lazyLoadImages)
             {
-                <img class="picture-img"
+                <img width="350" height="440" class="picture-img"
                      data-lazyloadsrc="@Model.DefaultPictureModel.ImageUrl"
                      src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
                      alt="@Model.DefaultPictureModel.AlternateText"
@@ -66,7 +66,7 @@
             }
             else
             {
-                <img class="picture-img" src="@Model.DefaultPictureModel.ImageUrl"
+                <img class="picture-img" width="350" height="440" src="@Model.DefaultPictureModel.ImageUrl"
                      alt="@Model.DefaultPictureModel.AlternateText" title="@Model.DefaultPictureModel.Title" />
             }
         </a>

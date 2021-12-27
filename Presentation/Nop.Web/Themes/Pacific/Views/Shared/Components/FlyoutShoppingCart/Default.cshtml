@@ -9,10 +9,10 @@
         }
     }
     <div id="topcartlink" class="flyout-cart-link" title="@T("ShoppingCart")">
-        <a href="@Url.RouteUrl("ShoppingCart")" class="ico-cart @noItemsInCart">
+        <a href="@Url.RouteUrl("ShoppingCart")" class="ico-cart font-0 @noItemsInCart">
             <span class="cart-qty-number-mobile">@Model.TotalProducts</span>
             <span class="cart-qty-number-desktop"><strong>@Model.TotalProducts</strong> @*@T("SevenSpikes.Themes.Pacific.ShoppingCart.Mini.Items")*@</span>
-            @*<span class="cart-qty sub-total">@Model.SubTotal</span>*@
+            @*<span class="cart-qty sub-total">@Model.SubTotal</span>*@shopping-cart
         </a>        
     </div>
     <div id="flyout-cart" class="flyout-cart">

@@ -1,18 +1,30 @@
 ﻿
 @media all and (min-width: 768px) {
+   .wishlist-page .cart tr:nth-child(2n+1) {
+    clear: both;
+    margin-left: 0;
+}
+.wishlist-page .cart tr {
+    float: left;
+    width: calc(50% - 10px);
+    margin: 0 0 20px 20px;
+}
     .nop-jcarousel .button-1 {
         margin: 60px auto 0 !important;
     }
+	 .product-grid .item-box input[type="button"]:hover {
+        background-color: #b53234 !important;
+        border-color: #b53234 !important;
+    }
+	  .product-grid .item-box input.add-to-wishlist-button:hover {
+        background-image: url('../img/product-wishlist.svg');
+    }
     /* GLOBAL STYLES */
-
-
     .html-home-page .master-column-wrapper {
         padding: 0;
     }
 
-    .master-column-wrapper {
-        padding: 0 20px;
-    }
+ 
 
     .page {
         clear: both;
@@ -29,14 +41,6 @@
     /* GLOBAL FORMS */
     /* NOTIFICATIONS & POPUPS */
     /* HEADER */
-
-
-
-
-
-
-
-
     .ui-autocomplete {
         width: 339px !important;
         max-width: none;
@@ -68,7 +72,7 @@
 
     .footer-lower {
         overflow: hidden;
-        padding: 4px 6vw 15px;
+        padding: 10px 6vw 25px;
     }
 
     .footer-lower-left {
@@ -433,7 +437,6 @@
         float: left;
         height: 40px;
         width: 40px;
-        margin: 0 0 0 5px;
         border: none;
         font-size: 0;
         background-color: #eee;
@@ -457,7 +460,10 @@
     .product-list .item-box input.add-to-wishlist-button {
         background-image: url('../img/product-wishlist-grey.svg');
     }
-
+ .product-list .item-box input.add-to-wishlist-button:hover {
+        background-image: url('../img/product-wishlist.svg');
+        background-color: #b53234;
+    }
     .manufacturer-grid .item-box,
     .vendor-grid .item-box {
         width: calc(25% - 9px);
@@ -1012,8 +1018,21 @@
 
 
 @media all and (min-width: 1000px) {
+.wishlist-page .cart tr:nth-child(2n+1) {
+    clear: none;
+    margin-left: 20px;
+}
+.wishlist-page .cart tr:nth-child(3n+1) {
+    clear: none;
+    margin-left: 20px;
+}
 
-
+.wishlist-page .cart tr {
+    width: calc(25.3333% - 21px);
+}
+.wishlist-page .cart tr:first-child{
+    margin-left:0;
+}
     .footer-upper {
         position: relative;
         border-top: 1px solid #eee;
@@ -1234,7 +1253,7 @@
     }
 
     .block {
-        width: calc(33.3333% - 6.6666px);
+        width: calc(34.3333% - 6.6666px);
     }
 
         .block:nth-of-type(2n+1) {
