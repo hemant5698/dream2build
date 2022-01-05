@@ -15,6 +15,7 @@ using Nop.Core.Domain.Security;
 using Nop.Core.Domain.Shipping;
 using Nop.Core.Html;
 using Nop.Core.Infrastructure;
+using Nop.Data;
 using Nop.Services.Caching;
 using Nop.Services.Catalog;
 using Nop.Services.Common;
@@ -79,6 +80,7 @@ namespace Nop.Web.Controllers
         private readonly MediaSettings _mediaSettings;
         private readonly OrderSettings _orderSettings;
         private readonly ShoppingCartSettings _shoppingCartSettings;
+        private readonly IRepository<ShoppingCartItem> _sciRepository;
 
         #endregion
 
@@ -117,7 +119,8 @@ namespace Nop.Web.Controllers
             IWorkflowMessageService workflowMessageService,
             MediaSettings mediaSettings,
             OrderSettings orderSettings,
-            ShoppingCartSettings shoppingCartSettings)
+            ShoppingCartSettings shoppingCartSettings,
+            IRepository<ShoppingCartItem> sciRepository)
         {
             _captchaSettings = captchaSettings;
             _customerSettings = customerSettings;
@@ -153,6 +156,7 @@ namespace Nop.Web.Controllers
             _mediaSettings = mediaSettings;
             _orderSettings = orderSettings;
             _shoppingCartSettings = shoppingCartSettings;
+            _sciRepository = sciRepository;
         }
 
         #endregion
@@ -1454,6 +1458,64 @@ namespace Nop.Web.Controllers
         #endregion
 
         #region Wishlist
+
+        [HttpPost]
+        [IgnoreAntiforgeryToken]
+        public virtual IActionResult AddProductToWishlist(int productId)
+        {
+            var product = _productService.GetProductById(productId);
+            var productAttributes = _productAttributeService.GetProductAttributeMappingsByProductId(product.Id);
+            //creating XML for "read-only checkboxes" attributes
+            var attXml = productAttributes.Aggregate(string.Empty, (attributesXml, attribute) =>
+            {
+                var attributeValues = _productAttributeService.GetProductAttributeValues(attribute.Id);
+                foreach (var selectedAttributeId in attributeValues
+                    .Where(v => v.IsPreSelected)
+                    .Select(v => v.Id)
+                    .ToList())
+                {
+                    attributesXml = _productAttributeParser.AddProductAttribute(attributesXml,
+                        attribute, selectedAttributeId.ToString());
+                }
+
+                return attributesXml;
+            });
+            var now = DateTime.UtcNow;
+            var shoppingCartItem = new ShoppingCartItem
+            {
+                ShoppingCartType = ShoppingCartType.Wishlist,
+                StoreId = _storeContext.CurrentStore.Id,
+                ProductId = product.Id,
+                AttributesXml = attXml,
+                Quantity = 1,
+                CreatedOnUtc = now,
+                UpdatedOnUtc = now,
+                CustomerId = _workContext.CurrentCustomer.Id
+            };
+
+            _sciRepository.Insert(shoppingCartItem);
+
+            //updated "HasShoppingCartItems" property used for performance optimization
+            _workContext.CurrentCustomer.HasShoppingCartItems = !_sciRepository.Table.Any(sci => sci.CustomerId == _workContext.CurrentCustomer.Id);
+
+            _customerService.UpdateCustomer(_workContext.CurrentCustomer);
+
+            //event notification
+            _customerActivityService.InsertActivity("PublicStore.AddToWishlist",
+                            string.Format(_localizationService.GetResource("ActivityLog.PublicStore.AddToWishlist"), product.Name), product);
+
+            //display notification message and update appropriate blocks
+            var shoppingCarts = _shoppingCartService.GetShoppingCart(_workContext.CurrentCustomer, ShoppingCartType.Wishlist, _storeContext.CurrentStore.Id);
+
+            var updatetopwishlistsectionhtml = shoppingCarts.Count;
+            return Json(new
+            {
+                success = true,
+                message = string.Format(_localizationService.GetResource("Products.ProductHasBeenAddedToTheWishlist.Link"), Url.RouteUrl("Wishlist")),
+                productId = productId,
+                updatetopwishlistsectionhtml
+            });
+        }
 
         [HttpPost]
         [IgnoreAntiforgeryToken]

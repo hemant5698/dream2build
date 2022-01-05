@@ -144,6 +144,11 @@ namespace Nop.Web.Infrastructure
                 pattern + "addproducttocart/catalog/{productId:min(0)}/{shoppingCartTypeId:min(0)}/{quantity:min(0)}",
                 new { controller = "ShoppingCart", action = "AddProductToCart_Catalog" });
 
+            //add product to wishlist (without any attributes and options). used on catalog pages.
+            endpointRouteBuilder.MapControllerRoute("AddProductToWishlist",
+                pattern + "addproducttowishlist/catalog/{productId:min(0)}",
+                new { controller = "ShoppingCart", action = "AddProductToWishlist" });
+
             //add product to cart (with attributes and options). used on the product details pages.
             endpointRouteBuilder.MapControllerRoute("AddProductToCart-Details",
                 pattern + "addproducttocart/details/{productId:min(0)}/{shoppingCartTypeId:min(0)}",
