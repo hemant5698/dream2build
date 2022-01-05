@@ -439,7 +439,7 @@ namespace Nop.Services.Messages
         /// <param name="subject">Email subject. Pass null if you want a message template subject to be used.</param>
         /// <param name="body">Email body</param>
         /// <returns>Queued email identifier</returns>
-        IList<int> SendContactUsMessage(int languageId, string senderEmail, string senderName, string subject, string body);
+        IList<int> SendContactUsMessage(int languageId, string senderEmail, string senderName, string subject, string body, string phone);
 
         /// <summary>
         /// Sends "contact vendor" message

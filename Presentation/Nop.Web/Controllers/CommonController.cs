@@ -203,7 +203,7 @@ namespace Nop.Web.Controllers
                 var body = Core.Html.HtmlHelper.FormatText(model.Enquiry, false, true, false, false, false, false);
 
                 _workflowMessageService.SendContactUsMessage(_workContext.WorkingLanguage.Id,
-                    model.Email.Trim(), model.FullName, subject, body);
+                    model.Email.Trim(), model.FullName, subject, body, model.Phone);
 
                 model.SuccessfullySent = true;
                 model.Result = _localizationService.GetResource("ContactUs.YourEnquiryHasBeenSent");

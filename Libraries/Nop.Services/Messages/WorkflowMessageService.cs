@@ -2161,7 +2161,7 @@ namespace Nop.Services.Messages
         /// <param name="body">Email body</param>
         /// <returns>Queued email identifier</returns>
         public virtual IList<int> SendContactUsMessage(int languageId, string senderEmail,
-            string senderName, string subject, string body)
+            string senderName, string subject, string body, string phone)
         {
             var store = _storeContext.CurrentStore;
             languageId = EnsureLanguageIsActive(languageId, store.Id);
@@ -2175,7 +2175,8 @@ namespace Nop.Services.Messages
             {
                 new Token("ContactUs.SenderEmail", senderEmail),
                 new Token("ContactUs.SenderName", senderName),
-                new Token("ContactUs.Body", body, true)
+                new Token("ContactUs.Body", body, true),
+                new Token("ContactUs.Phone", phone)
             };
 
             return messageTemplates.Select(messageTemplate =>

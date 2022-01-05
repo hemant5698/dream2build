@@ -7,6 +7,10 @@
     //page class
     Html.AppendPageCssClassParts("html-contact-page");
 }
+@{ 
+    var subject = new List<string>() { "Enqiry", "Suggestion", "Complaints" };
+    var subjectList = subject.Select(x => new SelectListItem(){Value = x, Text = x});
+}
 <div class="page contact-page">
     <div class="page-title">
         <h1>@T("PageTitle.ContactUs")</h1>
@@ -38,18 +42,27 @@
                             <nop-required />
                             <span asp-validation-for="Email"></span>
                         </div>
+
                         @if (Model.SubjectEnabled)
                         {
                             <div class="inputs">
                                 <label asp-for="Subject" asp-postfix=":"></label>
-                                <input asp-for="Subject" placeholder="@T("ContactUs.Subject.Hint")" class="subject" />
+                                <select asp-for="Subject" asp-items="@subjectList" required>
+                                    <option value="">Please select</option>
+                                </select>
                                 <nop-required />
                                 <span asp-validation-for="Subject"></span>
                             </div>
                         }
                         <div class="inputs">
-                            <label asp-for="Enquiry" asp-postfix=":"></label>
-                            <textarea asp-for="Enquiry" placeholder="@T("ContactUs.Enquiry.Hint")" class="enquiry"></textarea>
+                            <label asp-for="Phone" asp-postfix=":"></label>
+                            <input asp-for="Phone" placeholder="Enter your phone" class="Phone" />
+                            <span asp-validation-for="Phone"></span>
+                        </div>
+                        <div class="inputs">
+                            @*<label asp-for="Enquiry" asp-postfix=":"></label>*@
+                            <label>Message:</label>
+                            <textarea asp-for="Enquiry" placeholder="Enter your message." class="enquiry"></textarea>
                             <nop-required />
                             <span asp-validation-for="Enquiry"></span>
                         </div>
