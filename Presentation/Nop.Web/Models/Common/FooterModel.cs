@@ -51,6 +51,7 @@ namespace Nop.Web.Models.Common
         {
             public string Name { get; set; }
             public string SeName { get; set; }
+            public int DisplayOrder { get; set; }
 
             public bool IncludeInFooterColumn1 { get; set; }
             public bool IncludeInFooterColumn2 { get; set; }

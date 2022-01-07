@@ -428,6 +428,7 @@ namespace Nop.Web.Factories
                         Id = t.Id,
                         Name = _localizationService.GetLocalized(t, x => x.Title),
                         SeName = _urlRecordService.GetSeName(t),
+                        DisplayOrder = t.DisplayOrder,
                         IncludeInFooterColumn1 = t.IncludeInFooterColumn1,
                         IncludeInFooterColumn2 = t.IncludeInFooterColumn2,
                         IncludeInFooterColumn3 = t.IncludeInFooterColumn3
