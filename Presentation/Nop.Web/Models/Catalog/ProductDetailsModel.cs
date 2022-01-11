@@ -38,6 +38,8 @@ namespace Nop.Web.Models.Catalog
         public IList<PictureModel> PictureModels { get; set; }
 
         public string Name { get; set; }
+        public bool IsCementProduct { get; set; }
+        public bool IsSteelProduct { get; set; }
         public string ShortDescription { get; set; }
         public string FullDescription { get; set; }
         public string MetaKeywords { get; set; }
@@ -198,6 +200,8 @@ namespace Nop.Web.Models.Catalog
             /// PAngV baseprice (used in Germany)
             /// </summary>
             public string BasePricePAngV { get; set; }
+            public bool IsCementProduct { get; set; }
+            public bool IsSteelProduct { get; set; }
         }
 
         public partial class GiftCardModel : BaseNopModel
