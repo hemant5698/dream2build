@@ -18,6 +18,7 @@ namespace Nop.Web.Models.Blogs
         public string MetaTitle { get; set; }
         public string SeName { get; set; }
 
+        public bool IsIncludeBlogList { get; set; }
         public string Title { get; set; }
         public string Body { get; set; }
         public string BodyOverview { get; set; }

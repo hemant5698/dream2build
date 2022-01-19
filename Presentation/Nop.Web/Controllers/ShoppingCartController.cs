@@ -1536,7 +1536,7 @@ namespace Nop.Web.Controllers
             return Json(new
             {
                 success = true,
-                message = "Successfully remove from wishlist.",
+                message = "Product removed from Wishlist",
                 productId = productId,
                 quantity = wishlistQuantity
             });

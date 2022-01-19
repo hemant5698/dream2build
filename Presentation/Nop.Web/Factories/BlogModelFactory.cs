@@ -138,6 +138,7 @@ namespace Nop.Web.Factories
             model.CreatedOn = _dateTimeHelper.ConvertToUserTime(blogPost.StartDateUtc ?? blogPost.CreatedOnUtc, DateTimeKind.Utc);
             model.Tags = _blogService.ParseTags(blogPost);
             model.AddNewComment.DisplayCaptcha = _captchaSettings.Enabled && _captchaSettings.ShowOnBlogCommentPage;
+            model.IsIncludeBlogList = blogPost.IsIncludeBlogList;
 
             //number of blog comments
             var storeId = _blogSettings.ShowBlogCommentsPerStore ? _storeContext.CurrentStore.Id : 0;

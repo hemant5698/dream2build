@@ -19,6 +19,8 @@ namespace Nop.Core.Domain.Blogs
         /// </summary>
         public bool IncludeInSitemap { get; set; }
 
+        public bool IsIncludeBlogList { get; set; }
+
         /// <summary>
         /// Gets or sets the blog post title
         /// </summary>

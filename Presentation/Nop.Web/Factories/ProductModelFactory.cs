@@ -1369,12 +1369,12 @@ namespace Nop.Web.Factories
             {
                 foreach (var item in categoryName)
                 {
-                    if (item.ToLower().Equals("cement"))
+                    if (item.ToLower().Equals("cements"))
                     {
                         model.IsCementProduct = true;
                         model.ProductPrice.IsCementProduct = true;
                     }
-                    else if (item.ToLower().Equals("steel"))
+                    else if (item.ToLower().Equals("tmt rebars"))
                     {
                         model.IsSteelProduct = true;
                         model.ProductPrice.IsSteelProduct = true;
