@@ -1005,7 +1005,7 @@ namespace Nop.Web.Factories
 
                 if (cart.Any())
                 {
-                    model.TotalProducts = cart.Sum(item => item.Quantity);
+                    model.TotalProducts = cart.Count;
 
                     //subtotal
                     var subTotalIncludingTax = _workContext.TaxDisplayType == TaxDisplayType.IncludingTax && !_taxSettings.ForceTaxExclusionFromOrderSubtotal;
