@@ -636,7 +636,7 @@ namespace Nop.Web.Framework.UI
                     }
 
                     //render
-                    result.AppendFormat("<link href=\"{0}\" rel=\"stylesheet\" type=\"{1}\" />", urlHelper.Content("~/bundles/" + outputFileName + ".min.css"), MimeTypes.TextCss);
+                    result.AppendFormat("<link href=\"{0}\" rel=\"stylesheet\" media=\"all\" type=\"{1}\" />", urlHelper.Content("~/bundles/" + outputFileName + ".min.css"), MimeTypes.TextCss);
                     result.Append(Environment.NewLine);
                 }
 
