@@ -38,6 +38,14 @@
                 <span @if (string.IsNullOrWhiteSpace(Model.PriceWithDiscount)) { <text> id="price-value-@(Model.ProductId)" class="price-value-@(Model.ProductId)" </text> }>
                     @Html.Raw(Model.Price)
                 </span>
+				@if (Model.IsCementProduct)
+                {
+                    <span class="product-price-text">per bag</span>
+                }
+				@if (Model.IsSteelProduct)
+                {
+                    <span class="product-price-text">per piece</span>
+                }
             </div>
             if (!string.IsNullOrWhiteSpace(Model.OldPrice))
             {
@@ -73,5 +81,6 @@
                 </div>
             }
         }
+		<div>(Inclusive of all taxes*.)</div>
     </div>
 }

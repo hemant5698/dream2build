@@ -13,6 +13,7 @@
 @inject SeoSettings seoSettings
 @inject StoreInformationSettings storeInformationSettings
 @inject Nop.Services.Localization.ILanguageService languageService
+@inject Nop.Core.IWebHelper _webHelper
 @{
     Html.AppendScriptParts(ResourceLocation.Footer, "~/js/public.countryselect.js");
     Html.AppendScriptParts(ResourceLocation.Footer, "~/js/public.ajaxcart.js");
@@ -42,17 +43,33 @@
     eventPublisher.Publish(new PageRenderingEvent(this.Html));
 
     var currentPageClass = (await Html.PartialAsync("_CurrentPageClass")).ToHtmlString().Trim();
+	var currentPageUrl = _webHelper.GetThisPageUrl(true); 
 }
 <!DOCTYPE html>
 <html lang="@languageService.GetTwoLetterIsoLanguageName(workContext.WorkingLanguage)" @(this.ShouldUseRtlTheme() ? Html.Raw(" dir=\"rtl\"") : null) @Html.NopPageCssClasses()>
     <head>
-        <title>@Html.NopTitle()</title>
+        @if (currentPageUrl.Equals("https://www.dream2build.in/"))
+		{
+			<title>Buy Construction Materials Online | Dream2Build</title>
+		}
+		else
+		{
+			<title>@Html.NopTitle()</title>
+		}
         <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
         <meta name="description" content="@(Html.NopMetaDescription())" />
         <meta name="keywords" content="@(Html.NopMetaKeywords())" />
-        <meta name="generator" content="nopCommerce" />
+        <meta name="generator" content="nopCommerce" />	
     	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0" />
-        
+		<meta property="og:title" content="Dream2build" />
+    <meta property="og:url" content="https://www.dream2build.in/" />
+    <meta property="og:site_name" content="Dream2build" />
+        <meta property="og:image" content="https://www.dream2build.in/Themes/Pacific/Content/img/og-dream2build.jpg" />
+        <meta property="og:image:url" content="https://www.dream2build.in/Themes/Pacific/Content/img/og-dream2build.jpg" />
+    <meta property="og:type" content="website" />
+		
+		
+     
         @Html.NopHeadCustom()
         @*This is used so that themes can inject content into the header*@
         @await Html.PartialAsync("Head")
@@ -71,10 +88,20 @@
         }
         @Html.NopInlineScripts(ResourceLocation.Head)
         <!--Powered by nopCommerce - https://www.nopCommerce.com-->
-		<script src="https://apps.elfsight.com/p/platform.js" defer></script>
-<div class="elfsight-app-dfbb9a9a-300d-47e7-a852-536c835e32f0"></div>
+		
+		<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PVFHF7X');</script>
+<!-- Google Tag Manager End -->
     </head>
 	<body class="@currentPageClass">
+	<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PVFHF7X"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
         @RenderBody()
         @Html.NopCssFiles(ResourceLocation.Footer)
         @Html.NopScripts(ResourceLocation.Footer)

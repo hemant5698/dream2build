@@ -389,7 +389,7 @@
                         @await Component.InvokeAsync("Widget", new { widgetZone = "productdetails_after_collateral", additionalData = Model.Id })
                     }                    
                 </div>
-                <div class="product-page-grids @if (isProductPageLayoutOne) {<text>side-grids</text>}">
+                <div class="product-page-grids test @if (isProductPageLayoutOne) {<text>side-grids</text>}">
                     @*we do not display "also purchased" for grouped products
                     @await Component.InvokeAsync("ProductsAlsoPurchased", new { productId = Model.Id })*@
                     @await Component.InvokeAsync("RelatedProducts", new { productId = Model.Id })

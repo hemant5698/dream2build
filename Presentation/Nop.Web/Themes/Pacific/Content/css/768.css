@@ -4,10 +4,16 @@
     clear: both;
     margin-left: 0;
 }
+	.add-to-cart-panel .qty-dropdown + .add-to-cart-button {
+    width: calc(93% - 71px);
+}
+.overview-buttons .add-to-wishlist-button:hover {
+	 background-image: url(../img/product-wishlist.svg);
+}
 .wishlist-page .cart tr {
     float: left;
     width: calc(50% - 10px);
-    margin: 0 0 20px 20px;
+    margin: 0 0 20px 12px;
 }
     .nop-jcarousel .button-1 {
         margin: 60px auto 0 !important;
@@ -54,7 +60,7 @@
 
 
     .home-page .topic-block-body {
-        font-size: 16px;
+        font-size: 15px;
         line-height: 30px;
     }
 
@@ -72,7 +78,7 @@
 
     .footer-lower {
         overflow: hidden;
-        padding: 10px 6vw 25px;
+        padding: 25px 6vw 25px;
     }
 
     .footer-lower-left {
@@ -508,7 +514,7 @@
     }
 
     .overview-buttons-wrapper {
-        margin: 35px 0;
+        margin: 20px 0;
         overflow: hidden;
     }
 
@@ -516,7 +522,7 @@
         float: right;
         width: 30%;
         margin: 0;
-        text-align: right;
+        text-align: left;
     }
 
     .overview-buttons-wrapper .add-to-cart {
@@ -1020,18 +1026,18 @@
 @media all and (min-width: 1000px) {
 .wishlist-page .cart tr:nth-child(2n+1) {
     clear: none;
-    margin-left: 20px;
+    margin-left: 12px;
 }
 .wishlist-page .cart tr:nth-child(3n+1) {
     clear: none;
-    margin-left: 20px;
+    margin-left: 12px;
 }
 
 .wishlist-page .cart tr {
-    width: calc(25.3333% - 21px);
+    width: calc(25.3333% - 20px);
 }
 .wishlist-page .cart tr:first-child{
-    margin-left:0;
+    /* margin-left:0; */
 }
     .footer-upper {
         position: relative;
@@ -1058,7 +1064,7 @@
 
     .footer-blocks-wrapper.left {
         float: left;
-        width: 33%;
+        width: 100%;
         padding: 30px 60px;
     }
 
@@ -1232,7 +1238,14 @@
     .footer-block {
         padding: 0;
     }
-
+.footer-center.footer-block{
+	    text-align: center;
+    margin: 0 auto;
+    display: block;
+    left: 0;
+    right: 0;
+    width: 50% !important;
+}
     .footer-powered-by:last-child, .footer-designed-by:last-child {
         margin: 0;
         border: none;

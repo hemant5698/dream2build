@@ -10,7 +10,7 @@
 @section left {
     <div class="blocks-wrapper">
     	@await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.LeftSideColumnBlogBefore })
-        @await Component.InvokeAsync("BlogMonths")
+        @*@await Component.InvokeAsync("BlogMonths")*@
     	@await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.LeftSideColumnAfterBlogArchive })
         @await Component.InvokeAsync("BlogTags")
     	@await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.LeftSideColumnBlogAfter })
@@ -40,21 +40,21 @@
     <div class="page-body">
         @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.BlogListPageBeforePosts })
         <div class="blog-posts">
-            @foreach (var item in Model.BlogPosts)
+            @foreach (var item in Model.BlogPosts.Where(x => x.IsIncludeBlogList))
             {
                 @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.BlogListPageBeforePost, additionalData = item })
                 <div class="post">
                     @await Component.InvokeAsync("Widget", new { widgetZone = "bloglist_page_before_post_title", additionalData = item.Id })
                     <div class="post-head">
-                        <span class="post-date">
+                        @*<span class="post-date">
                             <span class="day">@item.CreatedOn.Day.ToString("00")</span>
                             <span class="month">@item.CreatedOn.ToString("MMMM")</span>
-                        </span>
+                        </span>*@
                         <a class="post-title" href="@Url.RouteUrl("BlogPost", new {SeName = item.SeName})">@item.Title</a>
                     </div>
                     @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.BlogListPageBeforePostBody, additionalData = item })
                     <div class="post-body">
-                        @Html.Raw(!string.IsNullOrEmpty(item.BodyOverview) ? item.BodyOverview : item.Body)
+                        @Html.Raw(item.BodyOverview)
                     </div>
                     @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.BlogListPageAfterPostBody, additionalData = item })
                     <div class="blog-details">

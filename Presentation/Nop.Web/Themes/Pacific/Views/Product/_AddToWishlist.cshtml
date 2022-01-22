@@ -1,5 +1,26 @@
 ﻿@model ProductDetailsModel.AddToCartModel
 @using Nop.Core.Domain.Orders
+@using Nop.Core
+@using Nop.Services.Orders;
+@inject IWorkContext workContext
+@inject IShoppingCartService  _shoppingCartService
+@{
+    var activeClass = string.Empty;
+    var customer = workContext.CurrentCustomer;
+    var wishlistList = _shoppingCartService.GetShoppingCart(customer, ShoppingCartType.Wishlist, 1).Where(x => x.Quantity > 0).ToList();
+    if (wishlistList.Any())
+    {
+        foreach (var item in wishlistList)
+        {
+            if (item.ProductId == Model.ProductId)
+            {
+                activeClass = "active";
+            }
+        }
+    }
+    var quantity = 1;
+    var addtowishlistlink = Url.RouteUrl("AddProductToWishlist", new { productId = Model.ProductId });
+}
 @if (!Model.DisableWishlistButton)
 {
     var addToWishlistText = "";
@@ -12,6 +33,6 @@
         addToWishlistText = T("Products.Wishlist.AddToWishlist").Text;
     }
     <div class="add-to-wishlist">
-        <input type="button" id="add-to-wishlist-button-@Model.ProductId" class="button-2 add-to-wishlist-button" value="@addToWishlistText" title="@addToWishlistText" data-productid="@Model.ProductId" onclick="AjaxCart.addproducttocart_details('@Url.RouteUrl("AddProductToCart-Details", new {productId = Model.ProductId, shoppingCartTypeId = (int) ShoppingCartType.Wishlist})', '#product-details-form');return false;"/>
+        <input type="button" id="add-to-wishlist-button-@Model.ProductId" class="@activeClass button-2 add-to-wishlist-button wish_@(Model.ProductId)" value="@addToWishlistText" title="@addToWishlistText" data-productid="@Model.ProductId" onclick="AjaxCart.addOrRemoveProductFromWishlist('@addtowishlistlink', '@Model.ProductId');" />
     </div>
 }

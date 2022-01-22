@@ -17,7 +17,7 @@
 }
 <div class="order-summary-content @onePageCheckoutClass">
 <h4 class="awesome">Note:
-    Service will be available in Bhubneshwar and Cuttack city only.
+    Service will be available in Bhubneshwar city only.
 </h4>
     @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.OrderSummaryContentBefore })
     @await Html.PartialAsync("_OrderReviewData", Model.OrderReviewData)
@@ -63,18 +63,8 @@
                         </colgroup>
                         <thead>
                             <tr>
-                                @if (Model.IsEditable)
-                                {
-                                    <th class="remove-from-cart">
-                                        @T("ShoppingCart.Remove")
-                                    </th>
-                                }
-                                @if (Model.ShowSku)
-                                {
-                                    <th class="sku">
-                                        @T("ShoppingCart.SKU")
-                                    </th>
-                                }
+                              
+                             
                                 @if (Model.ShowProductImages)
                                 {
                                     <th class="product-picture">
@@ -99,33 +89,20 @@
                                 <th class="subtotal">
                                     @T("ShoppingCart.ItemTotal")
                                 </th>
+								  @if (Model.IsEditable)
+                                {
+                                    <th class="remove-from-cart">
+                                        @T("ShoppingCart.Remove")
+                                    </th>
+                                }
                             </tr>
                         </thead>
                         <tbody>
                             @foreach (var item in Model.Items)
                             {
                                 <tr>
-                                    @if (Model.IsEditable)
-                                    {
-                                        <td class="remove-from-cart">
-                                            @if (item.DisableRemoval)
-                                            {
-                                                <text>&nbsp;</text>
-                                            }
-                                            else
-                                            {
-                                            	<input type="checkbox" name="removefromcart" id="removefromcart@(item.Id)" value="@(item.Id)" aria-label="@T("ShoppingCart.Remove")" />
-                                                <label class="checkbox-label" for="removefromcart@(item.Id)">@T("ShoppingCart.Remove"):</label>
-                                            }
-                                        </td>
-                                    }
-                                    @if (Model.ShowSku)
-                                    {
-                                        <td class="sku">
-                                            <label class="td-title">@T("ShoppingCart.SKU"):</label>
-                                            <span class="sku-number">@item.Sku</span>
-                                        </td>
-                                    }
+                                   
+                                   
                                     @if (Model.ShowProductImages)
                                     {
                                         <td class="product-picture">
@@ -223,6 +200,21 @@
                                             }
                                         }
                                     </td>
+									 @if (Model.IsEditable)
+                                    {
+                                        <td class="remove-from-cart">
+                                            @if (item.DisableRemoval)
+                                            {
+                                                <text>&nbsp;</text>
+                                            }
+                                            else
+                                            {
+                                            	<input type="checkbox" name="removefromcart" id="removefromcart@(item.Id)" value="@(item.Id)" aria-label="@T("ShoppingCart.Remove")" />
+                                                @*<label class="checkbox-label" for="removefromcart@(item.Id)">@T("ShoppingCart.Remove"):</label>*@
+												<button name="updatecart" class="remove-btn" onclick="$('#removefromcart' +@item.Id).attr('checked', !0)"></button>
+                                            }
+                                        </td>
+                                    }
                                 </tr>
                             }
                         </tbody>
@@ -242,7 +234,7 @@
                     {
                         <div class="common-buttons">
                             <button type="submit" name="updatecart" class="button-2 update-cart-button">@T("ShoppingCart.UpdateCart")</button>
-                            <button type="submit" name="continueshopping" class="button-2 continue-shopping-button">@T("ShoppingCart.ContinueShopping")</button>
+                            @*<button type="submit" name="continueshopping" class="button-2 continue-shopping-button">@T("ShoppingCart.ContinueShopping")</button>*@
                         </div>
                     }
                 </div>

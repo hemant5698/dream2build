@@ -15,10 +15,7 @@
 }
 
 @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HeaderLinksBefore })
-<div class="hedar-links-item help font-13 d-xs-none">
-    <a href="tel:+8124512458">Helpline No: +91 81245 12458</a>
-   
-</div>
+
 @if (Model.IsAuthenticated)
 {
     <div class="hedar-links-item">

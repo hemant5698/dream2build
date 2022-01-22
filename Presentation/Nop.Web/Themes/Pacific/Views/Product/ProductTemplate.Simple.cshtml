@@ -139,14 +139,13 @@
                                     var productManufacturers = await Html.PartialAsync("_ProductManufacturers", Model.ProductManufacturers);
                                     var productSkuManGiinVendor = await Html.PartialAsync("_SKU_Man_GTIN_Ven", Model);
                                 }
-                                @if (!String.IsNullOrEmpty(productManufacturers.ToHtmlString()) || !String.IsNullOrEmpty(productSkuManGiinVendor.ToHtmlString()))
-                                {
-                                    <div class="overview-info-wrapper">
+                                <div class="overview-info-wrapper">
                                         @productManufacturers
-										<div class="manufacturers"><span class="label">For bulk orders (500 or more qty.) please contact us for pricing. &gt;</span> <span class="value"> <a href="/contactus">Contact Us</a> </span></div>
-                                        @productSkuManGiinVendor
+										<div class="manufacturers"><span class="label">For odd quantity or bulk orders contact us for best pricing. &gt;</span> <span class="value"> <a href="/contactus">Contact Us</a> </span></div>
+											<div class="manufacturers"><span class="label">Unloading charges is extra.</span></div>
+										<div class="manufacturers"><span class="label">Your order will be delivered within 24 hours.(Excluding holiday)</span></div>
+										@productSkuManGiinVendor
                                     </div>
-                                }
                                 <!--availability-->
                                 @await Html.PartialAsync("_Availability", Model)
 
@@ -174,15 +173,19 @@
                                     dataDictRental.TemplateInfo.HtmlFieldPrefix = $"rental_{Model.Id}";
                                     @await Html.PartialAsync("_RentalInfo", Model, dataDictRental)
                                 }
+								@if (!string.IsNullOrEmpty(Model.AddToCart.MinimumQuantityNotification))
+                                {
+                                    <div class="min-qty-notification">@Model.AddToCart.MinimumQuantityNotification</div>
+                                }
                                 <div class="overview-buttons-wrapper">
                                     <!--wishlist, compare, email a friend-->
                                     <div class="overview-buttons">
                             			@await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.ProductDetailsInsideOverviewButtonsBefore, additionalData = Model })
-                                        @*@{
+                                        @{
                                             var dataDictAddToWishlist = new ViewDataDictionary(ViewData);
                                             dataDictAddToWishlist.TemplateInfo.HtmlFieldPrefix = $"addtocart_{Model.Id}";
                                             @await Html.PartialAsync("_AddToWishlist", Model.AddToCart, dataDictAddToWishlist)
-                                        }*@
+                                        }
                                         @await Html.PartialAsync("_CompareProductsButton", Model)
                                         @await Html.PartialAsync("_ProductEmailAFriendButton", Model)
                                         <!--sample download-->
@@ -232,6 +235,7 @@
                     }
                 </div>
                 <div class="product-page-grids @if (isProductPageLayoutOne) {<text>side-grids</text>}">
+				<img src="../Themes/Pacific/Content/img/bg-1.jpg" width="100%">
                     @await Component.InvokeAsync("RelatedProducts", new { productId = Model.Id })
                     @*@await Component.InvokeAsync("ProductsAlsoPurchased", new { productId = Model.Id })*@
                     @*@if (isProductPageLayoutOne)

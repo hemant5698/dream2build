@@ -1,7 +1,29 @@
 ﻿
 @media all and (min-width: 1261px) {
-	
-	
+		.add-to-cart-panel .qty-dropdown + .add-to-cart-button {
+    width: calc(91% - 71px);
+}
+.hedar-links-item.help {
+    float: left;
+    border-left: 0;
+    border-right: 1px solid #e3e3e3;
+    padding: 13px 13px 13px 20px;
+}
+.order-summary-content	.product{
+    width: 260px;	
+	}
+
+.offer-menu {
+    float: right;
+    margin-right: 15px;
+    background-image: url(../img/black-Border.png);
+    background-size: 100% 100%;
+-webkit-animation: color-change 1s infinite;
+    -moz-animation: color-change 1s infinite;
+    -o-animation: color-change 1s infinite;
+    -ms-animation: color-change 1s infinite;
+    animation: color-change 2s infinite;
+}
 		
     .home-page-welcome-message.with-image-background {
         padding: 7px 0px 50px calc(40% - 5px);
@@ -173,7 +195,7 @@
             .admin-header-links a {
                 margin: 0 !important;
                 border-right: 1px solid #e3e3e3;
-                padding: 0 15px;
+                padding: 2px 15px;
                 line-height: 38px;
             }
     
@@ -234,7 +256,7 @@
             position: absolute;
             top: 0;
             bottom: 0;
-            left: -38px;
+            left: -34px;
             width: 38px;
             text-align: center;
             font-family: 'pacific';
@@ -360,13 +382,12 @@
     
                         .header-menu .menu-body > ul > li > a,
                         .header-menu .menu-body > ul > li > span {
-                            display: block;
-                            padding: 11.2px 12px;
-                            font-size: 15px; /*reset zeroing*/
-                            font-weight: bold;
-                            text-transform: capitalize;
-                            transition: 0.3s ease;
-                            color: #444;
+                               display: block;
+                               padding: 11.2px 12px;
+                               font-size: 13px;
+                               font-weight: bold;
+                               text-transform: uppercase;
+                               transition: 0.3s ease;
                         }
     
             .header-menu.wrapped .menu-body > ul > li > a,
@@ -389,7 +410,7 @@
                 .header-menu .menu-body > ul > li > span.with-subcategories:before {
                     content: "";
                     position: absolute;
-                    bottom: -20px;
+                    bottom: -15px;
                     left: 0;
                     right: 0;
                     width: 100%;
@@ -520,7 +541,7 @@
             z-index: 1115;
             width: 80px;
             height: 70px;
-            line-height: 54px;
+            line-height: 59px;
             color: #444;
             background: #fff;
         }
@@ -564,16 +585,16 @@
                 white-space: nowrap;
                 text-overflow: ellipsis;
                 position: absolute;
-                right: 15px;
+                right: 10px;
                 background: #b53234;
                 border-radius: 50%;
-                width: 15px;
-                height: 15px;
-                font-size: 11px;
+                width: 20px;
+                height: 20px;
+                font-size: 10px;
+                line-height: 21px;
                 color: #fff;
-                top: 17px;
+                top: 15px;
                 text-align: center;
-                padding: 1px 0;
             }
     
         .cart-qty-number-mobile {
@@ -734,7 +755,7 @@
             margin: 0 0 10px;
         }
     
-        .footer-block li a {
+        .footer-block li a img{
             transition: 0.3s ease;
             display: inline-block;
         }
@@ -758,12 +779,7 @@
             padding: 0 !important;
         }
     
-            .social-sharing a:hover {
-                -webkit-transform: scale(1.2);
-                -ms-transform: scale(1.2);
-                -moz-transform: scale(1.2);
-                transform: scale(1.2);
-            }
+
     
     
     
@@ -819,7 +835,7 @@
                     background-color: #b53234;
                     text-align: center;
                     line-height: 36px;
-                    color: rgb(255 255 255);
+                    color: rgb(255,255,255);
                 }
     
                 .block .title:after {
@@ -1402,7 +1418,7 @@
     
         .items-five .product-grid .item-box,
         .center-2 .product-grid .item-box {
-            width: calc(20% - 8px);
+            width: calc(25% - 10px);
         }
     
         .item-box .product-item {
@@ -2158,7 +2174,7 @@
         }
     
         .product-page-layout-one .overview-buttons-wrapper {
-            margin-bottom: 15px;
+            margin-bottom: 0;
         }
     
         .product-page-grids.side-grids {
@@ -2296,7 +2312,7 @@
     
         .product-details-page .product-name {
             margin: 0;
-            padding: 10px 0;
+            padding: 0px 0 10px;
             text-align: left;
             border-bottom: 1px solid #e6e6e6;
             margin-bottom: 10px;
@@ -2304,7 +2320,7 @@
     
             .product-details-page .product-name h1 {
                 font-size: 28px;
-                color: #444;
+                color: #131313;
             }
     
         .product-reviews-overview {
@@ -2379,18 +2395,15 @@
             text-align: left;
         }
     
-        .overview .add-to-wishlist-button:hover,
+       
         .variant-overview .add-to-wishlist-button:hover,
         .overview .add-to-compare-list-button:hover,
         .overview .email-a-friend-button:hover,
         .download-sample-button:hover {
-            background-color: #c09e6c;
+            background-color: #eee !important;
         }
     
-        .overview .add-to-wishlist-button:hover,
-        .variant-overview .add-to-wishlist-button:hover {
-            background-image: url('../img/product-wishlist.svg');
-        }
+        
     
         .overview .add-to-compare-list-button:hover {
             background-image: url('../img/product-compare.svg');
@@ -2836,11 +2849,9 @@
             .html-account-page .block .listbox a {
                 position: relative;
                 padding: 20px 15px 20px 70px;
-                font-size: 14px;
+                font-size: 16px;
                 line-height: 20px;
                 font-weight: bold;
-                text-transform: uppercase;
-                color: #888;
             }
     
                 .html-account-page .block .listbox a:before {
@@ -2852,13 +2863,12 @@
                     margin: auto;
                     width: 50px;
                     height: 50px;
-                    background-color: #f6f6f6;
                     text-align: center;
                     font-family: 'pacific';
                     font-size: 20px;
                     line-height: 50px;
+                    border: 1px solid #eee;
                     font-weight: normal;
-                    color: #888;
                 }
     
             .html-account-page .block .listbox .customer-addresses a:before {
@@ -2943,7 +2953,7 @@
     
             .customer-info-page .fieldset .title {
                 margin: -30px -30px 30px;
-                padding: 30px;
+                padding: 20px;
             }
     
         .address-list-page .address-item .buttons,
@@ -3087,25 +3097,33 @@
             border-top: none;
             background-color: #fff;
             padding: 20px;
-            text-align: left;
+            text-align: right;
         }
     
-            .common-buttons button {
-                position: relative;
-                width: auto;
-                margin: 0 25px 0 0;
-                background-color: #fff;
-                padding: 10px 15px 10px 32px;
-            }
+.common-buttons button {
+    max-width: 280px;
+    border: none;
+    background-color: #b53234;
+    padding: 17px 17px 17px 35px;
+    font-size: 17px;
+
+    font-weight: bold;
+    transition: 0.3s ease;
+    color: #fff !important;
+    border-radius: 3px;
+    text-align: center;
+}
     
-                .common-buttons button:before {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    bottom: 0;
-                    height: 30px;
-                    margin: auto;
-                }
+             .common-buttons button:before {
+    position: absolute;
+    top: 0;
+    left: 15px;
+    bottom: 0;
+    height: 30px;
+    margin: auto;
+    color: #ffffff;
+    font-weight: bold;
+}
     
             .common-buttons .continue-shopping-button:before {
                 line-height: 28px;
@@ -3287,7 +3305,7 @@
     
         .opc .step-title,
         .opc .step {
-            padding: 30px;
+            padding: 25px;
         }
     
         .opc .buttons {
@@ -3349,7 +3367,7 @@
         .news-list-page .news-item {
             width: calc(50% - 10px);
             margin: 0 0 20px 20px;
-            padding: 40px 40px 65px;
+            padding: 40px 20px 65px;
         }
     
         .blog-posts .buttons,

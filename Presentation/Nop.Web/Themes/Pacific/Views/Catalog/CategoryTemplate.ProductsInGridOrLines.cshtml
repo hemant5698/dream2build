@@ -91,7 +91,7 @@
         {
             <div class="category-grid sub-category-grid">
                 <div class="item-grid">
-                    @foreach (var item in Model.SubCategories)
+                    @foreach (var item in Model.SubCategories.OrderBy(x => x.Name))
                     {
                         <div class="item-box">
                             <div class="sub-category-item">

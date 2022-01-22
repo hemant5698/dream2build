@@ -5,6 +5,13 @@
     .explore-range .topic-block, .why-choose .topic-block, .home-page-welcome-message, .rich-blog-homepage, .manufacturer-grid {
         margin: 0 0 80px !important;
     }    
+	.add-to-cart-panel .qty-dropdown + .add-to-cart-button {
+    width: calc(91% - 64px);
+}
+.overview .add-to-cart-button, .variant-overview .add-to-cart-button {
+ 
+    width: calc(87% - 71px);
+}
 	div:last-child > .nop-jcarousel {
     margin-bottom: 80px !important;
 }
@@ -78,12 +85,7 @@
         margin-left: 10px;
     }
 
-    .items-five .product-grid .item-box:nth-child(5n+1),
-    .center-2 .product-grid .item-box:nth-child(5n+1) {
-        clear: both;
-        margin-left: 0;
-    }
-
+   
     .shopping-cart-page .totals {
         padding: 10px;
     }

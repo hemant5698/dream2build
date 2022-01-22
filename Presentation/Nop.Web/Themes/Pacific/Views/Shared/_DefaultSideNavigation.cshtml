@@ -24,7 +24,7 @@
     @await Component.InvokeAsync("Widget", new { widgetZone = "left_side_column_before" })
     @if (!string.IsNullOrEmpty(categoryNavigation.ToHtmlString()))
     {
-        <div class="block block-category-navigation">
+        <div class="block block-category-navigation" >
             <div class="title">
                 <strong>@T("Categories")</strong>
             </div>
@@ -34,15 +34,15 @@
 
     @await Component.InvokeAsync("Widget", new { widgetZone = "left_side_column_after_category_navigation" })
 
-    @if (!string.IsNullOrEmpty(manufacturerNavigation.ToHtmlString()))
+    @*@if (!string.IsNullOrEmpty(manufacturerNavigation.ToHtmlString()))
     {
-        <div class="block block-manufacturer-navigation">
+        <div class="block block-manufacturer-navigation ">
             <div class="title">
                 <strong>@T("Manufacturers")</strong>
             </div>
             @manufacturerNavigation
         </div>
-    }
+    }*@
 
     @if (!string.IsNullOrEmpty(recentlyViewedProductsBlock.ToHtmlString()))
     {
@@ -87,3 +87,6 @@
 </div>
 
 @await Component.InvokeAsync("Widget", new { widgetZone = "left_side_column_bottom" })
+
+
+

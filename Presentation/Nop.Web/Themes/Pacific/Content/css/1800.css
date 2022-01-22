@@ -1,4 +1,9 @@
-﻿
+﻿@media all and (min-width:1601px){
+	.wishlist-page .cart tr {
+    width: calc(25.3333% - 23px);
+}
+}
+
 @media all and (min-width: 1801px) {
 
     /* GLOBAL STYLES */
@@ -273,16 +278,6 @@
     /* PRODUCT PAGE */
 
 
-
-    .product-page-layout-one .product-essential {
-        width: 100%;
-    }
-
-    .product-page-grids.side-grids {
-        width: 19%;
-        padding: 0 0 0 20px;
-    }
-
     .gallery-wrapper {
         width: 46%;
     }
@@ -406,9 +401,6 @@
         right: 108px;
     }
 
-    .wishlist-page .table-wrapper {
-        width: calc(100% - 370px);
-    }
 
     .wishlist-info {
         width: 350px;
@@ -421,9 +413,9 @@
     }
 
     .home-page-welcome-message.with-image-background {
-        padding: 50px 0px 50px calc(40% - 5px);
-        background-position: left 0% center;
-        background-size: 35%;
+        padding: 50px 50px 50px calc(40% - 5px);
+        background-position: left 10% center;
+        background-size: 27%;
     }
 
     /* CONTACT PAGE & EMAILaFRIEND */

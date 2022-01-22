@@ -15,7 +15,6 @@
 
 @{
     var activeClass = string.Empty;
-    var wishlistIconActive = false;
     var customer = workContext.CurrentCustomer;
     var wishlistList = _shoppingCartService.GetShoppingCart(customer, ShoppingCartType.Wishlist, 1).Where(x => x.Quantity > 0).ToList();
     if (wishlistList.Any())
@@ -25,7 +24,6 @@
             if (item.ProductId == Model.Id)
             {
                 activeClass = "active";
-                wishlistIconActive = true;
             }
         }
     }
@@ -43,7 +41,8 @@
         addtocartlink = Url.RouteUrl("AddProductToCart-Catalog", new { productId = Model.Id, shoppingCartTypeId = shoppingCartTypeId, quantity = quantity });
     }
 
-    var addtowishlistlink = Url.RouteUrl("AddProductToCart-Catalog", new { productId = Model.Id, shoppingCartTypeId = (int)ShoppingCartType.Wishlist, quantity = quantity });
+    //var addtowishlistlink = Url.RouteUrl("AddProductToCart-Catalog", new { productId = Model.Id, shoppingCartTypeId = (int)ShoppingCartType.Wishlist, quantity = quantity });
+    var addtowishlistlink = Url.RouteUrl("AddProductToWishlist", new { productId = Model.Id});
     var addtocomparelink = Url.RouteUrl("AddProductToCompare", new { productId = Model.Id });
 
     var storeId = storeContext.CurrentStore.Id;
@@ -130,7 +129,7 @@
                     <div class="base-price-pangv">
                         @Model.ProductPrice.BasePricePAngV
                     </div>
-                }
+                }				
             </div>
             <div class="">
                 <input type="button" value="@T("ShoppingCart.AddToWishlist")" title="@T("ShoppingCart.AddToWishlist")" data-id="@Model.Id" class="@activeClass button-2 add-to-wishlist-button wish_@(Model.Id)" onclick="AjaxCart.addOrRemoveProductFromWishlist('@addtowishlistlink', '@Model.Id');" />
@@ -147,9 +146,9 @@
         <div class="add-info">
             @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.ProductBoxAddinfoBefore, additionalData = Model })
             @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.ProductBoxAddinfoMiddle, additionalData = Model })
-            <div class="buttons">
+            <!--<div class="buttons">-->
                 @*<input type="button" value="@T("Products.Details")" class="button-1 product-box-detail-button" onclick="setLocation('@Url.RouteUrl("Product", new { SeName = Model.SeName })')" />*@
-                @if (!Model.ProductPrice.DisableBuyButton)
+                <!--@if (!Model.ProductPrice.DisableBuyButton)
                 {
                     var addToCartText = T("ShoppingCart.AddToCart").Text;
                     if (Model.ProductPrice.IsRental)
@@ -167,7 +166,7 @@
                 {
                     <input type="button" value="@T("ShoppingCart.AddToCompareList")" title="@T("ShoppingCart.AddToCompareList")" class="button-2 add-to-compare-list-button" onclick="AjaxCart.addproducttocomparelist('@addtocomparelink');return false;" />
                 }
-            </div>
+            </div>-->
             <a class="item-box-overlay" href="@Url.RouteUrl("Product", new { SeName = Model.SeName })" title="@Model.DefaultPictureModel.Title">
                 <span class="item-box-overlay-tint"></span>
             </a>

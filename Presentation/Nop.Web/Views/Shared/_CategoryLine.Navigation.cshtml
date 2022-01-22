@@ -43,7 +43,7 @@
             if (Model.Category.SubCategories.Count > 0)
             {
                 <ul class="sublist">
-                    @foreach (var subCategory in Model.Category.SubCategories)
+                    @foreach (var subCategory in Model.Category.SubCategories.OrderBy(x => x.Name))
                     {
                         var categoryLineModel = new CategoryNavigationModel.CategoryLineModel
                         {

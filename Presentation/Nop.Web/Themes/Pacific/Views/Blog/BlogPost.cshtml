@@ -13,7 +13,7 @@
 @section left {
     <div class="blocks-wrapper">
     	@await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.LeftSideColumnBlogBefore })
-        @await Component.InvokeAsync("BlogMonths")
+        @*@await Component.InvokeAsync("BlogMonths")*@
     	@await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.LeftSideColumnAfterBlogArchive })
         @await Component.InvokeAsync("BlogTags")
     	@await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.LeftSideColumnBlogAfter })
@@ -25,10 +25,10 @@
         <h1>@Model.Title</h1>
     </div>
     <div class="page-body">
-        <div class="post-date">
+        @*<div class="post-date">
             <span class="day">@Model.CreatedOn.Day.ToString("00")</span>
             <span class="month">@Model.CreatedOn.ToString("MMMM")</span>
-        </div>
+        </div>*@
         @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.BlogPostPageBeforeBody, additionalData = Model })
         <div class="post-body">
             @Html.Raw(Model.Body)

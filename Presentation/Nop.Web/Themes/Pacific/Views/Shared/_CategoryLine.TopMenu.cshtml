@@ -3,7 +3,7 @@
 <li>
     @if (Model.Category.SubCategories.Count > 0)
     {
-        <a class="with-subcategories" href="@Url.RouteUrl("Category", new { SeName = Model.Category.SeName })">@Model.Category.Name
+        <a class="with-subcategories " href="@Url.RouteUrl("Category", new { SeName = Model.Category.SeName })">@Model.Category.Name
 		</a>
         <div class="plus-button"></div>
         <div class="sublist-wrap">

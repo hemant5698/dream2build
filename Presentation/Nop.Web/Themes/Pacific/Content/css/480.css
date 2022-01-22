@@ -114,9 +114,6 @@
     background-color: #e6e6e6;
 }
 
-.common-buttons button {
-    margin: 0 10px 3px;
-}
 
 .cart-collaterals .hint,
 .cart-collaterals .shipping-results {
@@ -148,7 +145,7 @@
 .news-list-page .news-date {
     float: left;
 }
-.post-title, 
+
 .news-list-page .news-title {
     margin: 0 0 0 80px;
 }

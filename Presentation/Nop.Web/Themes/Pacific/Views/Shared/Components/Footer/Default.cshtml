@@ -25,18 +25,18 @@
                     <li class="phone">
                         <span>@T("SevenSpikes.Themes.Pacific.Common.Phone")</span>
                     </li>
-                    <li class="work-time">
+                    @*<li class="work-time">
                         <span>@T("SevenSpikes.Themes.Pacific.Common.WorkTime")</span>
-                    </li>
+                    </li>*@
                     <li class="e-mail">
                         <span>@T("SevenSpikes.Themes.Pacific.Common.EMail")</span>
                     </li>
                     <li class="address-city">
                         <span>@T("SevenSpikes.Themes.Pacific.Common.City")</span>
                     </li>
-                    <li class="address-street">
+                    @*<li class="address-street">
                         <span>@T("SevenSpikes.Themes.Pacific.Common.Street")</span>
-                    </li>
+                    </li>*@
                 </ul>
             </div>
             <div class="footer-block information">
@@ -44,13 +44,13 @@
                     <strong>@T("SevenSpikes.Themes.Pacific.Common.Information")</strong>
                 </div>
                 <ul class="list footer-collapse">
+                    @foreach (var topic in Model.Topics.Where(x => x.IncludeInFooterColumn1).OrderBy(x => x.DisplayOrder).ToList())
+                    {
+                        <li><a href="@Url.RouteUrl("Topic", new { SeName = topic.SeName })">@topic.Name</a></li>
+                    }
                     @if (Model.SitemapEnabled && Model.DisplaySitemapFooterItem)
                     {
                         <li><a href="@Url.RouteUrl("Sitemap")">@T("Sitemap")</a></li>
-                    }
-                    @foreach (var topic in Model.Topics.Where(x => x.IncludeInFooterColumn1).ToList())
-                    {
-                        <li><a href="@Url.RouteUrl("Topic", new { SeName = topic.SeName })">@topic.Name</a></li>
                     }
                 </ul>
             </div>
@@ -91,42 +91,20 @@
                     {
                         <li><a href="@Url.RouteUrl("Topic", new {SeName = topic.SeName})">@topic.Name</a></li>
                     }
+					<li><a href="@Url.RouteUrl("Category", new {SeName = "cement"})">Cement</a></li>
+                    <li><a href="@Url.RouteUrl("Category", new {SeName = "steel"})">TMT Rebars</a></li>
+                    <li><a href="@Url.RouteUrl("Category", new {SeName = "bricks"})">Bricks</a></li>
+                    <li><a href="@Url.RouteUrl("Category", new {SeName = "sand"})">Sand</a></li>
+                    <li><a href="@Url.RouteUrl("Category", new {SeName = "dust-aggregate"})">Dust and Aggregate</a></li>
                 </ul>
             </div>
             <div class="footer-block account">
                 <div class="title">
                     <strong>@T("SevenSpikes.Themes.Pacific.Common.MyAccount")</strong>
                 </div>
-                <ul class="list footer-collapse">
-                    @if (Model.DisplayCustomerInfoFooterItem)
-                    {
-                        <li><a href="@Url.RouteUrl("CustomerInfo")">@T("Account.MyAccount")</a></li>
-                    }
-                    @if (Model.DisplayCustomerOrdersFooterItem)
-                    {
-                        <li><a href="@Url.RouteUrl("CustomerOrders")">@T("Account.CustomerOrders")</a></li>
-                    }
-                    @if (Model.DisplayCustomerAddressesFooterItem)
-                    {
-                        <li><a href="@Url.RouteUrl("CustomerAddresses")">@T("Account.CustomerAddresses")</a></li>
-                    }
-                    @if (Model.ShoppingCartEnabled && Model.DisplayShoppingCartFooterItem)
-                    {
-                        <li><a href="@Url.RouteUrl("ShoppingCart")">@T("ShoppingCart")</a></li>
-                    }
-                    @if (Model.WishlistEnabled && Model.DisplayWishlistFooterItem)
-                    {
-                        <li><a href="@Url.RouteUrl("Wishlist")">@T("Wishlist")</a></li>
-                    }
-                    @if (Model.AllowCustomersToApplyForVendorAccount && Model.DisplayApplyVendorAccountFooterItem)
-                    {
-                        <li><a href="@Url.RouteUrl("ApplyVendorAccount")">@T("Vendors.ApplyAccount")</a></li>
-                    }
-                    @foreach (var topic in Model.Topics.Where(x => x.IncludeInFooterColumn3).ToList())
-                    {
-                        <li><a href="@Url.RouteUrl("Topic", new {SeName = topic.SeName})">@topic.Name</a></li>
-                    }
-                </ul>
+                <div class="list footer-collapse">
+                  @await Component.InvokeAsync("SocialButtons")
+                </div>
             </div>
             
         </div>
@@ -150,10 +128,7 @@
                 </div>
             }
         </div>
-        <div class="footer-block footer-center">
-            @await Component.InvokeAsync("NewsletterBox")
-            @await Component.InvokeAsync("SocialButtons")
-        </div>
+        
 		
         <div class="footer-lower-right">
 		<div class="footer-powered-by d-none">

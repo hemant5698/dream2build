@@ -16,11 +16,14 @@
 <ul class="social-sharing">
     @if (!String.IsNullOrEmpty(Model.FacebookLink))
     {
-        <li><a target="_blank" rel="noreferrer" class="facebook font-0" href="@Model.FacebookLink"><img src="../Themes/Pacific/Content/img/facebook.png" height="30">Facebook</a></li>
+        <li><a target="_blank" rel="noreferrer" class="facebook" href="@Model.FacebookLink">
+		<img src="../Themes/Pacific/Content/img/facebook.png" height="30" alt="socialicon">
+		<span>Facebook</span></a></li>
     }
     @if (!String.IsNullOrEmpty(Model.TwitterLink))
     {
-        <li><a target="_blank" rel="noreferrer" class="twitter font-0" href="@Model.TwitterLink"><img src="../Themes/Pacific/Content/img/twitter.png" height="30">twitter</a></li>
+        <li><a target="_blank" rel="noreferrer" class="twitter "  href="@Model.TwitterLink"><img alt="socialicon" src="../Themes/Pacific/Content/img/twitter.png" height="30">
+		<span>twitter</span></a></li>
     }
     @if (!String.IsNullOrEmpty(pinterestUrl))
     {
@@ -32,7 +35,8 @@
     }
     @if (!String.IsNullOrEmpty(Model.YoutubeLink))
     {
-        <li><a target="_blank" rel="noreferrer" class="instagram font-0" href="@Model.YoutubeLink"><img src="../Themes/Pacific/Content/img/instagram.png" height="30">instagram</a></li>
+        <li><a target="_blank" rel="noreferrer" class="instagram " href="@Model.YoutubeLink"><img alt="socialicon" src="../Themes/Pacific/Content/img/instagram.png" height="30">
+		<span>instagram</span></a></li>
     }
     @if (!String.IsNullOrEmpty(instagramUrl))
     {
@@ -40,7 +44,8 @@
     }
     @if (Model.NewsEnabled)
     {
-        <li><a target="_blank" class="rss font-0"  rel="noreferrer" href="https://www.linkedin.com/feed/"><img src="../Themes/Pacific/Content/img/linkdin.png" height="30">linkdin
+        <li><a target="_blank" class="rss "  rel="noreferrer" href="https://www.linkedin.com/feed/"><img alt="socialicon" src="../Themes/Pacific/Content/img/linkdin.png" height="30">
+		<span>linkdin</span>
 		</a></li>
     }
 </ul>

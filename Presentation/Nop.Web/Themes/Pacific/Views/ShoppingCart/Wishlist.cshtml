@@ -114,8 +114,9 @@
                                         @if (Model.IsEditable)
                                         {
                                             <td class="sku remove-from-cart">
-                                                <input id="remove-item-@(item.Id)" type="checkbox" name="removefromcart" value="@(item.Id)" aria-label="@T("ShoppingCart.Remove")" />
-                                                <label for="remove-item-@(item.Id)" class="checkbox-label">@T("ShoppingCart.Remove")</label>
+                                                <input type="checkbox" class="remove-check" name="removefromcart" id="removefromcart@(item.Id)" value="@(item.Id)" aria-label="@T("ShoppingCart.Remove")" />
+                                            @*<label for="remove-item-@(item.Id)" class="checkbox-label">@T("ShoppingCart.Remove")</label>*@
+                                            <button name="updatecart" class="remove-btn" onclick="$('#removefromcart' +@item.Id).attr('checked', !0)"></button>
                                             </td>
                                         }
                                         @*@if (Model.DisplayAddToCart)
@@ -140,7 +141,9 @@
                                         }
                                         <td class="product">
                                             <a href="@Url.RouteUrl("Product", new { SeName = item.ProductSeName })" class="product-name">@item.ProductName</a>
-                                            @if (!string.IsNullOrEmpty(item.AttributeInfo))
+                                            
+											<div class="product-unit-price">@item.UnitPrice</div>
+										 @*@if (!string.IsNullOrEmpty(item.AttributeInfo))
                                             {
                                                 <div class="attributes">
                                                     @Html.Raw(item.AttributeInfo)
@@ -176,11 +179,11 @@
                                                         }
                                                     </ul>
                                                 </div>
-                                            }
+                                            }*@
                                         </td>
                                         <td class="unit-price">
                                           @*  <label class="td-title">@T("ShoppingCart.UnitPrice"):</label>*@
-                                            <span class="product-unit-price">@item.UnitPrice</span>
+                                         <button type="button" onclick="window.location.href='@Url.RouteUrl("Product", new { SeName = item.ProductSeName })'" id="add-to-cart-button-9" class="button-1 add-to-cart-button"> <span>Add to Cart</span> </button>
                                         </td>
                                         @*<td class="quantity">
                                             <label class="td-title">@T("ShoppingCart.Quantity"):</label>
@@ -233,10 +236,10 @@
                             {
                                 <button type="submit" name="addtocartbutton" class="button-2 wishlist-add-to-cart-button">@T("ShoppingCart.AddToCart")</button>
                             }*@
-                            @if (Model.IsEditable)
+                            @*@if (Model.IsEditable)
                             {
                                 <button type="submit" name="updatecart" class="button-2 wishlist-add-to-cart-button">@T("Wishlist.UpdateCart")</button>
-                            }
+                            }*@
                             @*@if (Model.IsEditable && Model.EmailWishlistEnabled)
                             {
                                 <button type="button" class="button-2 email-a-friend-wishlist-button" onclick="setLocation('@Url.RouteUrl("EmailWishlist")')">@T("Wishlist.EmailAFriend")</button>
