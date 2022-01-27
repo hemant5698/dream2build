@@ -943,6 +943,7 @@ namespace Nop.Services.Messages
             var billingAddress = _addressService.GetAddressById(order.BillingAddressId);
 
             tokens.Add(new Token("Order.OrderId", order.Id));
+            tokens.Add(new Token("Order.OrderStatus", order.OrderStatus));
             tokens.Add(new Token("Order.OrderNumber", order.CustomOrderNumber));
 
             tokens.Add(new Token("Order.CustomerFullName", $"{billingAddress.FirstName} {billingAddress.LastName}"));
