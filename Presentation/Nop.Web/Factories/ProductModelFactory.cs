@@ -593,6 +593,7 @@ namespace Nop.Web.Factories
                             model.PriceWithDiscount = _priceFormatter.FormatPrice(finalPriceWithDiscount);
 
                         model.PriceValue = finalPriceWithDiscount;
+                        model.PriceAfterText = product.PriceAfterText;
 
                         //property for German market
                         //we display tax/shipping info only with "shipping enabled" for this product

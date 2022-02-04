@@ -520,6 +520,8 @@ namespace Nop.Core.Domain.Catalog
         /// </summary>
         public int DisplayOrder { get; set; }
 
+        public string PriceAfterText { get; set; }
+
         /// <summary>
         /// Gets or sets a value indicating whether the entity is published
         /// </summary>

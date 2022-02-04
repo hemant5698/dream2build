@@ -202,6 +202,7 @@ namespace Nop.Web.Models.Catalog
             public string BasePricePAngV { get; set; }
             public bool IsCementProduct { get; set; }
             public bool IsSteelProduct { get; set; }
+            public string PriceAfterText { get; set; }
         }
 
         public partial class GiftCardModel : BaseNopModel

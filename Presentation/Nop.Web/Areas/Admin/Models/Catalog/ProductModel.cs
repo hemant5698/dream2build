@@ -320,6 +320,9 @@ namespace Nop.Web.Areas.Admin.Models.Catalog
         [NopResourceDisplayName("Admin.Catalog.Products.Fields.ProductCost")]
         public decimal ProductCost { get; set; }
 
+        [NopResourceDisplayName("Admin.Catalog.Products.Fields.PriceAfterText")]
+        public string PriceAfterText { get; set; }
+
         [NopResourceDisplayName("Admin.Catalog.Products.Fields.CustomerEntersPrice")]
         public bool CustomerEntersPrice { get; set; }
 
