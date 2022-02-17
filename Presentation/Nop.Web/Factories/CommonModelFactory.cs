@@ -804,6 +804,8 @@ namespace Nop.Web.Factories
                     "/country/getstatesbycountryid",
                     "/install",
                     "/setproductreviewhelpfulness",
+                    "/login",
+                    "/register?*"
                 };
                 var localizableDisallowPaths = new List<string>
                 {
