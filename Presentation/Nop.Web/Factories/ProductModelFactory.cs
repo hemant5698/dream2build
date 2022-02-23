@@ -1175,7 +1175,8 @@ namespace Nop.Web.Factories
                 StockAvailability = _productService.FormatStockMessage(product, string.Empty),
                 HasSampleDownload = product.IsDownload && product.HasSampleDownload,
                 DisplayDiscontinuedMessage = !product.Published && _catalogSettings.DisplayDiscontinuedMessageForUnpublishedProducts,
-                AvailableEndDate = product.AvailableEndDateTimeUtc
+                AvailableEndDate = product.AvailableEndDateTimeUtc,
+                AdminComment = product.AdminComment
             };
 
             //automatically generate product description?
