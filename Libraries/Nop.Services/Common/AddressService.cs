@@ -172,8 +172,8 @@ namespace Nop.Services.Common
             if (string.IsNullOrWhiteSpace(address.FirstName))
                 return false;
 
-            if (string.IsNullOrWhiteSpace(address.LastName))
-                return false;
+            //if (string.IsNullOrWhiteSpace(address.LastName))
+            //    return false;
 
             if (string.IsNullOrWhiteSpace(address.Email))
                 return false;

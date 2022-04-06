@@ -234,15 +234,8 @@ namespace Nop.Web.Factories
             };
 
             //existing addresses
-            var addresses = _customerService.GetAddressesByCustomerId(_workContext.CurrentCustomer.Id)
-                .Where(a => _countryService.GetCountryByAddress(a) is Country country &&
-                    (//published
-                    country.Published &&
-                    //allow billing
-                    country.AllowsBilling &&
-                    //enabled for the current store
-                    _storeMappingService.Authorize(country)))
-                .ToList();
+            var addresses = _customerService.GetAddressesByCustomerId(_workContext.CurrentCustomer.Id).ToList();
+
             foreach (var address in addresses)
             {
                 var addressModel = new AddressModel();
